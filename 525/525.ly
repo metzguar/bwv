@@ -2,9 +2,9 @@
 \include "../templates/organ.ly"
 
 \header {
-  %  title = "Sonata 1"
-  %  subtitle = "BWV 525"
-  %  composer = "Johann Sebastian Bach"
+  title = "Sonata 1"
+  subtitle = "BWV 525"
+  composer = "Johann Sebastian Bach"
   tagline = ##f
 }
 
@@ -234,7 +234,6 @@ pedalA = \relative es {
   es,8 g b4 es,2 \fermata \bar "|."
 }
 
-%{
 \score {
   <<
     \new PianoStaff  <<
@@ -258,7 +257,7 @@ pedalA = \relative es {
     \tempo 4=80
   }
 }
-%}
+
 
 globalB = {
   \key c \minor
@@ -285,14 +284,73 @@ rightB = \relative g'' {
     fis16 b a8 r es16 d fis 8 r g16 d c b c es b a c b a b
     g16 b a g a fis d8 g fis g4.~ g4
   }
+  \repeat volta 2 {
+    r8
+    r2. r4 r8 r4 g8
+    c4 as8 b4 es8 as,8. b16 as8 as'16 es des c ges'8
+    \barNumberCheck 15
+    r16 f es des as' g! as4.~ as16 g f es b' a b4.~
+    b16as g f as f as ges f es ges es f es des c b a b4.~
+    b16 as! g f e g c,4 r8 r16 g' as c f des c b e g b g
+    as16 b c8 b as des,8. b16 c g as8 r g16 b des, g b8~
+    b16 b, c es f des es g as b c8~ c16 c, des! f b ges f es a c es c
+    \barNumberCheck 20
+    des16 es f8 es des g,4~ g8 c as! f h c~
+    c16 d,! e g b!8~ b16 c b as b g as e! f as des8~ des16 h c es! as8~
+    as16 g f g as f \appoggiatura es8 d4 g8 c,4 es8 d4 g,8
+    c8. h16 c8 d,4 c'8~ c16 a h d g e des c e g b! g
+    as4 r8 r4 f8~ f16 f, g b es c b as c es g es
+    \barNumberCheck 25
+    f4 r8 r4 d8~ d16 d, es g c as g f h d f d
+    es16 f g8 f es16 d c b! as! g fis g a8 r r4 a8~
+    a16 g h d f!8~ f16 g f es f d es8 d16 c c'8 r as16 g h8
+    c16 g f es f as es d f es d es c4.~ c4
+  }
 }
 
 leftB = \relative d'' {
   \globalB
   \clef "treble"
-  \partial 8 r8
-  R1.
-  r2. r4 r8 r4 d8
+  \repeat volta 2 {
+    \partial 8 r8
+    R1.
+    r2. r4 r8 r4 d8
+    g,4 \appoggiatura { g16 a } b8 \appoggiatura b8 a!4 d,8 g8. fis16 g8 g,4 g'8~
+    g16 b a c es g, fis a es d c'8~ c16 a b d g e des c e g b g
+    \barNumberCheck 5
+    as4 r8 r4 f8~ f16 f, g b es c b as c es g es
+    f4 r8 r4 d8~ d16 d, es g c as g f h d f d
+    es16 f g8 f es as8. f16 g16 d es8 r d16 f as, d f8~
+    f16 f, g b c as b d es f g8~ g16 g, as c f des c b e g b g
+    as16 b c8 b as d,!4~ d8 g es c fis( g)
+    \barNumberCheck 10
+    g16 \mordent a, h d f!8~ f16 g f es f d
+    es4 r8 r4 es,8~
+    es16 d fis a c8~ c16 d c b c a b8 a16 g g'8 r es16 d fis8
+    g16 d c b c es b a c b a b g4.~ g4
+  }
+  \repeat volta 2 {
+    d8
+    g4 es8 f4 b8 es,8. f16 es8 es'16 b as g des'8
+    r16 c b as es' d! es4.~ es16 des c b c as des8 ges c,
+    \barNumberCheck 15
+    f4.~ f16 g! f es f d! b8. c16 des8 g,16 as! g f g e
+    c4 f8 b, des c~ c f4~ f16 as g! f e f
+    e4 r8 r16 c e g b g as e f8 r e16 g b, e g8~
+    g16 g, as c des b c e f as b8~ b16 b, c es as f es des g b des b
+    c16 des es8 des c f8. es16 des!16 a b8 r a16 c es, a c8~
+    \barNumberCheck 20
+    c16 c,des f ges es f a b des c b as g as c f c b as g f e f
+    e4 r8 r4 c'8 f,4 as8 g4 c,8
+    f8. e16 f8 g,16 g' f es f d es h c es as8~ as16 fis g b es8~
+    es16 d c d es c a' g fis g a d, es16 c d8 r r4 g8~
+    g16 g, as c f d! c b d f as f g4 r8 r4 es8~
+    \barNumberCheck 25
+    es16 es, f h d h as! g h d f d es h c8 r h!16 d f, h d8~
+    d16 d, es g as f g h c d es8~ es16 g, fis a c8~ c16 d c h! c a
+    h16 es d8 r as!16 g h8 r c16 g f es f as es d f es d es
+    c16 es d c d h g8 c h c4.~ c4 \fermata
+  }
 }
 
 pedalB = \relative c' {
@@ -316,8 +374,29 @@ pedalB = \relative c' {
     d4 e8 fis a d, g4 es8 c4 d8
     es4 c8 d4 d,8 g4.~ g4
   }
+  \repeat volta 2 {
+    r8
+    r4 c8 d4 g,8 c4.~ c8 c' b
+    as4 f8 g4 c,8 f4.~ f8 es as
+    \barNumberCheck 15
+    des,8 f es d c b es g f e d c
+    f4 d!8 es!4 as8 des,8. es16 des8 des'4 g,8
+    c4 b8 as4 g8 f4 as8 g4 c,8
+    f8. e16 f8 f,4 g'8 as4 c8 b4 es,8
+    as8. g16 as8 as,4 a'8 b4 des8 c4 f,8
+    \barNumberCheck 20
+    b8. a16 b8 b,4 e8 f4 es8 des4.
+    c4 d!8 e g e f4 f,8 es!4 es'8
+    d4 c8 h g h c4 c'8 b!4 b,8
+    as4 g8 fis d fis g g' f! e d c
+    f,8 f' es! d c b es, es' d c b as
+    \barNumberCheck 25
+    d,8 d' c h a g c4 es8 d4 g,8
+    c8. h16 c8 c,4 c'8 d4 e8 fis a d,
+    g4 a8 h d g, c4 as8 f4 g8
+    as4 f8 g4 g,8 c4.~ c4 \bar "|."
+  }
 }
-
 \score {
   <<
     \new PianoStaff  <<
