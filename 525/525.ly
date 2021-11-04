@@ -1,5 +1,6 @@
 \version "2.22.1"
 \include "../templates/organ.ly"
+\include "../macros/macros.ly"
 
 \header {
   title = "Sonata 1"
@@ -268,7 +269,7 @@ rightB = \relative g'' {
   \globalB
   \clef "treble"
   \repeat volta 2 {
-    \tempo "Adagio" \partial 8 g8
+    \tempo \markup { \huge "Adagio" } \partial 8 g8
     c,4 \appoggiatura { c16 d } es8 \appoggiatura es8 d4 g,8 c8. h16 c8 c,4 c'8~
     c16 es d f as c, h d as g f'8~ f16 d es g c g fis a es d c'8~
     c16 a b g es8~ es16 c d f b8~ b16 g c, es d c d b g b d es
@@ -349,7 +350,7 @@ leftB = \relative d'' {
     es16 es, f h d h as! g h d f d es h c8 r h!16 d f, h d8~
     d16 d, es g as f g h c d es8~ es16 g, fis a c8~ c16 d c h! c a
     h16 es d8 r as!16 g h8 r c16 g f es f as es d f es d es
-    c16 es d c d h g8 c h c4.~ c4 \fermata
+    c16 es d c d h g8 c h c4.~ c4
   }
 }
 
@@ -394,9 +395,14 @@ pedalB = \relative c' {
     d,8 d' c h a g c4 es8 d4 g,8
     c8. h16 c8 c,4 c'8 d4 e8 fis a d,
     g4 a8 h d g, c4 as8 f4 g8
-    as4 f8 g4 g,8 c4.~ c4 \bar "|."
+    as4 f8 g4 g,8 c4.~ c4
+    \override Score.RehearsalMark.break-visibility = #begin-of-line-invisible
+    \mark \markup { \musicglyph #"scripts.ufermata" }
+    \override Staff.RehearsalMark.direction = #DOWN
+    \override Staff.RehearsalMark.rotation = #'(180 0 0)
   }
 }
+
 \score {
   <<
     \new PianoStaff  <<
@@ -410,6 +416,7 @@ pedalB = \relative c' {
       } \leftB
     >>
     \new Staff \with {
+      \consists "Mark_engraver"
       midiInstrument = "harpsichord"
     } { \clef bass \pedalB }
   >>
@@ -418,5 +425,286 @@ pedalB = \relative c' {
   }
   \midi {
     \tempo 4.=32
+  }
+}
+
+globalC = {
+  \key es \major
+  \time 3/4
+}
+
+rightC = \relative es' {
+  \globalC
+  \repeat volta 2 {
+    \tempo \markup { \huge "Allegro"} es8 es' f, es' g, es'
+    as,8 es' b es c es
+    b16 es d c b g' f es d c b as
+    g16 as b g es g b es f, a c es
+    \barNumberCheck 5
+    d16 c d f es d es g f es f as!
+    g 16 f g b d, c d b' es, d es b'
+    d,8 f b d, c a'
+    b8 d, f d b d
+    es8 r es r es r
+    \barNumberCheck 10
+    es8 r es r es r
+    r16 es f g as b c b as g f as
+    g8 b, c as f'4~
+    f16 as g f es d c b as g as f'
+    g,16 f' es d c b as g f4~
+    \barNumberCheck 15
+    f16 as g f es4~ es16 d es f
+    h,8 d g h c d
+    es16 c h c g c h c es c h c
+    as8 r es' r es r
+    r16 b as b f b as b d b as b
+    \barNumberCheck 20
+    g8 r des' r des r
+    r16 as g as f as g as c as g as
+    f16 b as b d b as b f' d c d
+    b'8 g es2~
+    es16 d c b a b a g f es' d c
+    \barNumberCheck 25
+    b2.~
+    b16 a b es b a b d c4~
+    c16 g' f es d b' a g f es d c
+    b8 f' g f g es
+    f16 b a b es, b' d, b' es, b' c, b'
+    \barNumberCheck 30
+    d,4~ d16 b c d es f g a
+    b8[ b,] c r a4 \tr
+    b2.
+  } \pageTurn
+  \repeat volta 2 {
+    R2. * 2
+    \barNumberCheck 35
+    R2. * 2
+    b'8 b, as' b, g' b,
+    f'8 b, es b d b
+    es16 b c d es g, as b c d es f
+    \barNumberCheck 40
+    g16 f es g b g es b g' es des b
+    c16 des c as b c b g as b as f
+    g16 as g es c' des c es, b' c b es,
+    c'8 as c es, f d'!
+    r16 es f g as b c b as g f as
+    \barNumberCheck 45
+    g8[ c,] f as,!4 f'8
+    g,16 h c d es f g as! b! c b c,
+    as'16 g f e f es des c b4~
+    b16 as g f e8 c' d e
+    f8 r r4 r
+    \barNumberCheck 50
+    r16 b, as b f b as b des b as b
+    g8 r des' r des r
+    r16 as ges as es as ges as c as ges as
+    f16 b a b f b a b des b a b
+    g8 b es2~
+    \barNumberCheck 55
+    es16 es, des es as es des es c' as g as
+    d!16 es d c b g' f es d c b as
+    g16 f g b as g as c b as b des
+    c16 b c es \stemDown g, f g es' \stemNeutral as, g as es'
+    g,4 r16 g' f es d c b as
+    \barNumberCheck 60
+    g16 es' d es as, es' g, es' as, es' f, es'
+    g,8 b' c b c as
+    b16 es, f g as4~ as16 g as f
+    b8[ es,] f8 r d4 \tr
+    es2.
+  }
+}
+
+leftC = \relative b {
+  \globalC
+  \repeat volta 2 {
+    R2. * 4
+    \barNumberCheck 5
+    b8 b' c, b' d, b'
+    es,8 b' f b g b
+    f16 b a g f d' c b a g f es
+    d16 es f d b d f b d, f as! b
+    g16 f g b as g as c b as b des
+    \barNumberCheck 10
+    c16 b c es \stemDown g, f g es' \stemNeutral as, g as es'
+    g,8 b es g, f b
+    r16 es, f g as b c b as g f as
+    g8 b, c as f'4~
+    f16 as g f es d c b as g as f'
+    \barNumberCheck 15
+    g,16 f' es d \clef "bass" c b as g f4~
+    f16 as g f es8 g a h
+    c8 r r4 r
+    \clef "treble" r16 f es f c f es f as f es f
+    d8 r as' r as r
+    \barNumberCheck 20
+    r16 es des es b es des es g es des es
+    c16 f e f c f e f as f e f
+    d!8 f b2~
+    b16 b, as b es  b as b g' es d es
+    a16 b a g f d' c b a g f es
+    \barNumberCheck 25
+    d16 c d f es d es g f es f as!
+    g16 f g b d, c d b' es, d es b'
+    d,4 r16 d' c b a g f es
+    d16 b' a b es, b' d, b' es, b' c, b'
+    d,8 f g f g es
+    \barNumberCheck 30
+    f16 b, c d es4~ es16 d es c
+    f8[ d] es r c4 \tr
+    d2.
+  }
+  \repeat volta 2 {
+    f'8 f, es' f, d' f,
+    c' f, b f a f
+    \barNumberCheck 35
+    b16 f g a b d, es f g a b c
+    d16 c b d f d b f d' b as! f
+    g16 as g es f g f d es f es c
+    d16 es d b g' as g b, f' g f b,
+    g'8 es b g' f d
+    \barNumberCheck 40
+    es8 b' g b des g,
+    as8 r g r es r
+    es8 r es r es r
+    r16 es f g as b c b as g f as
+    g8 b, c as f'4~
+    \barNumberCheck 45
+    f16 es f g a h c d es f es as,
+    f'16 g, a h c d es f g4~
+    g16 b,! as! g as4~ as16 as g f
+    e16 f e d c8 e f g
+    as16 f e f c f e f as f es f
+    \barNumberCheck 50
+    des8 r as' r as r
+    r16 es des es b es des es g es des es
+    c8 r ges' r ges r
+    r16 des c des b des c des f des c des
+    b16 es des es g es des es b' g f g
+    \barNumberCheck 55
+    es'8 c as2~
+    as16 g f es d! es d c b as' g f
+    es2.~
+    es16 d! es as es d es g f4~
+    f16 c' b as g es' d c b as g f
+    \barNumberCheck 60
+    es8 b' c b c as
+    b16 es d es as, es' g, es' as, es' f, es'
+    g,4~ g16 es f g as b c d
+    es8[ g,] as r f4 \tr
+    g2.
+  }
+}
+
+pedalC = \relative es {
+  \repeat volta 2 {
+    \globalC
+    es2 r4
+    c2 r4
+    g4. as8 b4
+    es,4 g a
+    \barNumberCheck 5
+    b2 r4
+    b2 r4
+    b4 d f
+    b2 r4
+    es,,8 es' f, es' g, es'
+    \barNumberCheck 10
+    as,8 es' b es c es
+    b8 r c r d r
+    es2 d4
+    es4 as r
+    h,4 c d
+    \barNumberCheck 15
+    es,4 as2
+    g4 r16 g' f g es f d es
+    c8 es c es c es
+    f,8 as' f, as' f, as'
+    b,8 d b d b d
+    \barNumberCheck 20
+    es,8 g' es, g' es, g'
+    as,8 c as c as c
+    as8 d as d as d
+    g,8 es' g, es' g, es'
+    f,4 r r
+    \barNumberCheck 25
+    b8 b' c, b' d, b'
+    es,8 b' f b g b
+    f8 b es, b' f a
+    b,4 r r
+    b4 r r
+    \barNumberCheck 30
+    r8 f' g f g es
+    d8[ g] es r f4
+    b,2.
+  }
+  \repeat volta 2 {
+    b2 r4
+    es2 r4
+    \barNumberCheck 35
+    d4 g f
+    b4 d, b
+    es2 r4
+    b'2 as4
+    g4 g, b
+    \barNumberCheck 40
+    es,2 r4
+    r8 es' des' es, c' es,
+    b'8 es, as es g es
+    as8 r g r f r
+    es2 d4
+    \barNumberCheck 45
+    es4 d c
+    h8 f' es d c e
+    f,4 des'2
+    c4 r16 c' b c as b g as
+    f8 as f as f as
+    \barNumberCheck 50
+    b,8 des' b, des' b, des'
+    es,8 g es g es g
+    as,8 c' as, c' as, c'
+    des,8 f des f des f
+    des8 g des g des g
+    \barNumberCheck 55
+    c,8 as' c, as' c, as'
+    b,4 r r
+    es,8 es' f, es' g, es'
+    as,8 es' b es c es
+    b8 es as, es' b d
+    \barNumberCheck 60
+    es,4 r r
+    es4 r r
+    r8 b'' c b c as
+    g8[ c] as r b4
+    es,2.
+    \override Score.RehearsalMark.break-visibility = #begin-of-line-invisible
+    \mark \markup { \musicglyph #"scripts.ufermata" }
+    \override Staff.RehearsalMark.direction = #DOWN
+    \override Staff.RehearsalMark.rotation = #'(180 0 0)
+  }
+}
+
+\score {
+  <<
+    \new PianoStaff  <<
+      \new Staff \with {
+        midiInstrument = "harpsichord"
+        midiPanPosition = #0.8
+      } \rightC
+      \new Staff \with {
+        midiInstrument = "harpsichord"
+        midiPanPosition = #-0.8
+      } \leftC
+    >>
+    \new Staff \with {
+      \consists "Mark_engraver"
+      midiInstrument = "harpsichord"
+    } { \clef bass \pedalC }
+  >>
+  \layout{
+    indent = 0.7\cm
+  }
+  \midi {
+    \tempo 4=100
   }
 }

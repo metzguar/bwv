@@ -1,0 +1,1 @@
+tr = ^\markup { \hspace #0.6 \small \musicglyph #"scripts.trill" }
