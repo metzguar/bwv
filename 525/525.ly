@@ -57,7 +57,7 @@ rightA = \relative b' {
   f16 e d! c c'8 b as4 \prall g \prall
   f8 a c4 f,8 b des4~
   \barNumberCheck 35
-  des16 f e g c,8 b as f' g, e'
+  des16 f e g c,8 b as f' g, e'!
   f4 r8 f e g c4
   f,8 as c4 e,8 g c4~
   c16 b as g f es! des! c des es g f g es des es
@@ -69,13 +69,13 @@ rightA = \relative b' {
   b,8 d! f4 c16 es a g a es c es
   d16 f b f d f b, a h8 d g4
   \barNumberCheck 45
-  c,8 es as4~ as16 g f g as g f es
+  c,8 es as!4~ as16 g f g as g f es
   d4 r16 d es f es g b as b g es g
   des16 g b as b g des g c, g' b as b g c, g'
   c,16 f as g as f c f b, f' as g as f b, f'
   b,16 es g f g es b es a, es' ges f ges es a, es'
   \barNumberCheck 50
-  b16 c d es f4~ f16 b, g! b c as f as
+  b16 c d es f4~ f16 b, g! b c as! f as
   g8 es r g~ g16 f g b as g f es
   d8 f as4~ as16 f g b as g f es
   es'2~ es8 c d!16 es f8~
@@ -90,7 +90,6 @@ rightA = \relative b' {
 
 leftA = \relative es' {
   \globalA
-  \clef "treble"
   es8 g b4 es,8 as c4~
   c16 es d c b8 as \prall g8 f16 g as g f es
   f16 es d c b d es f g f es d c f g a
@@ -275,14 +274,14 @@ rightB = \relative g'' {
     c16 a b g es8~ es16 c d f b8~ b16 g c, es d c d b g b d es
     a,16 g fis a c8~ c g' fis g4 r8 r4 g8~
     \barNumberCheck 5
-    g16 g, as c f d c b d f as f g4 r8 r4 es8~
-    es16 es, f h d h as g h d f d es h c8 r h!16 d f, h d8~
+    g16 g, as! c f d c b d f as f g4 r8 r4 es8~
+    es16 es, f h d h as! g h d f d es h c8 r h!16 d f, h d8~
     d16 d, es g as f g h c es f8~ f16 f, g b es c b as d f as f
     g16 as b8 as g c8. b16 as16 e f8 r e!16 g b, e g8~
     g16 g, as c des b c e f as g f es d es g c g f es d c h c
     \barNumberCheck 10
     h4 r8 r4 d8~ d16 h! c es a8~ a16 c b! a b g
-    fis16 b a8 r es16 d fis 8 r g16 d c b c es b a c b a b
+    fis16 b a8 r es16 d fis! 8 r g16 d c b c es b a c b a b
     g16 b a g a fis d8 g fis g4.~ g4
   }
   \repeat volta 2 {
@@ -291,15 +290,15 @@ rightB = \relative g'' {
     c4 as8 b4 es8 as,8. b16 as8 as'16 es des c ges'8
     \barNumberCheck 15
     r16 f es des as' g! as4.~ as16 g f es b' a b4.~
-    b16as g f as f as ges f es ges es f es des c b a b4.~
+    b16 as! g f as f as ges f es ges es f es des c b a b4.~
     b16 as! g f e g c,4 r8 r16 g' as c f des c b e g b g
     as16 b c8 b as des,8. b16 c g as8 r g16 b des, g b8~
     b16 b, c es f des es g as b c8~ c16 c, des! f b ges f es a c es c
     \barNumberCheck 20
-    des16 es f8 es des g,4~ g8 c as! f h c~
+    des16 es f8 es des g,!4~ g8 c as! f h c~
     c16 d,! e g b!8~ b16 c b as b g as e! f as des8~ des16 h c es! as8~
     as16 g f g as f \appoggiatura es8 d4 g8 c,4 es8 d4 g,8
-    c8. h16 c8 d,4 c'8~ c16 a h d g e des c e g b! g
+    c8. h16 c8 d,4 c'8~ c16 a h! d g e des c e g b! g
     as4 r8 r4 f8~ f16 f, g b es c b as c es g es
     \barNumberCheck 25
     f4 r8 r4 d8~ d16 d, es g c as g f h d f d
@@ -336,9 +335,9 @@ leftB = \relative d'' {
     r16 c b as es' d! es4.~ es16 des c b c as des8 ges c,
     \barNumberCheck 15
     f4.~ f16 g! f es f d! b8. c16 des8 g,16 as! g f g e
-    c4 f8 b, des c~ c f4~ f16 as g! f e f
+    c4 f8 b, des c~ c f4~ f16 as! g! f e f
     e4 r8 r16 c e g b g as e f8 r e16 g b, e g8~
-    g16 g, as c des b c e f as b8~ b16 b, c es as f es des g b des b
+    g16 g, as c des b c e f as b8~ b16 b, c es as f es des! g b des b
     c16 des es8 des c f8. es16 des!16 a b8 r a16 c es, a c8~
     \barNumberCheck 20
     c16 c,des f ges es f a b des c b as g as c f c b as g f e f
@@ -348,7 +347,7 @@ leftB = \relative d'' {
     g16 g, as c f d! c b d f as f g4 r8 r4 es8~
     \barNumberCheck 25
     es16 es, f h d h as! g h d f d es h c8 r h!16 d f, h d8~
-    d16 d, es g as f g h c d es8~ es16 g, fis a c8~ c16 d c h! c a
+    d16 d, es g as f g h c d es8~ \stemDown es16 g, fis a c8~ \stemNeutral c16 d c h! c a
     h16 es d8 r as!16 g h8 r c16 g f es f as es d f es d es
     c16 es d c d h g8 c h c4.~ c4
   }
@@ -363,7 +362,7 @@ pedalB = \relative c' {
     f4 r8 g4 r8
     c,4 b8 a g fis
     g4 r8 f!4 r8 es4 r8 b'4 r8
-    c4 r8 d4 r8 g, g' f! e d c
+    c4 r8 d4 r8 g, g' f! e d! c
     \barNumberCheck 5
     f,8 f' es! d c b es, es' d c b as
     d,8 d' c h a g c4 es8 d4 g,8
@@ -389,7 +388,7 @@ pedalB = \relative c' {
     b8. a16 b8 b,4 e8 f4 es8 des4.
     c4 d!8 e g e f4 f,8 es!4 es'8
     d4 c8 h g h c4 c'8 b!4 b,8
-    as4 g8 fis d fis g g' f! e d c
+    as4 g8 fis d fis g g' f! e d! c
     f,8 f' es! d c b es, es' d c b as
     \barNumberCheck 25
     d,8 d' c h a g c4 es8 d4 g,8
@@ -439,9 +438,9 @@ rightC = \relative es' {
     \tempo \markup { \huge "Allegro"} es8 es' f, es' g, es'
     as,8 es' b es c es
     b16 es d c b g' f es d c b as
-    g16 as b g es g b es f, a c es
+    g16 as b g es g b es \stemUp f, a c es
     \barNumberCheck 5
-    d16 c d f es d es g f es f as!
+    \stemNeutral d16 c d f es d es g f es f as!
     g 16 f g b d, c d b' es, d es b'
     d,8 f b d, c a'
     b8 d, f d b d
