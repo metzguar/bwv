@@ -394,11 +394,7 @@ pedalB = \relative c' {
     d,8 d' c h a g c4 es8 d4 g,8
     c8. h16 c8 c,4 c'8 d4 e8 fis a d,
     g4 a8 h d g, c4 as8 f4 g8
-    as4 f8 g4 g,8 c4.~ c4
-    \override Score.RehearsalMark.break-visibility = #begin-of-line-invisible
-    \mark \markup { \musicglyph #"scripts.ufermata" }
-    \override Staff.RehearsalMark.direction = #DOWN
-    \override Staff.RehearsalMark.rotation = #'(180 0 0)
+    as4 f8 g4 g,8 c4.~ c4 \fermataOverBarLines
   }
 }
 
