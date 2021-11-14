@@ -3,10 +3,10 @@
 \include "../macros/macros.ly"
 
 \header {
-  %   title = "Sonata 2"
-  %   subtitle = "BWV 526"
-  %   composer = "Johann Sebastian Bach"
-  tagline = ##f
+  title = "Sonata 2"
+  subtitle = "BWV 526"
+  composer = "Johann Sebastian Bach"
+  tagline = \tagline
 }
 
 globalA = {
@@ -305,33 +305,33 @@ pedalA = \relative c' {
   es'!8 es,! r4 r2
   d8 r g r c r g' r
   as8 f g g, c2 \fermata \bar "|."
-
 }
 
-% \score {
-%   <<
-%     \new PianoStaff  <<
-%       \new Staff \with {
-%         midiInstrument = "harpsichord"
-%         midiPanPosition = #0.8
-%       } \rightA
-%       \new Staff \with {
-%         midiInstrument = "harpsichord"
-%         midiPanPosition = #-0.8
-%       } \leftA
-%     >>
-%     \new Staff \with {
-%       midiInstrument = "harpsichord"
-%     } { \clef bass \pedalA }
-%   >>
-%   \layout{
-%     indent = 0.7\cm
-%   }
-%   \midi {
-%     \tempo 4=80
-%   }
-% }
+\score {
+  <<
+    \new PianoStaff  <<
+      \new Staff \with {
+        midiInstrument = "harpsichord"
+        midiPanPosition = #0.8
+      } \rightA
+      \new Staff \with {
+        midiInstrument = "harpsichord"
+        midiPanPosition = #-0.8
+      } \leftA
+    >>
+    \new Staff \with {
+      midiInstrument = "harpsichord"
+    } { \clef bass \pedalA }
+  >>
+  \layout{
+    indent = 0.7\cm
+  }
+  \midi {
+    \tempo 4=80
+  }
+}
 
+\pageBreak
 
 globalB = {
   \key es \major
@@ -520,30 +520,32 @@ pedalB = \relative es {
   g2. \bar "|." \fermataOverBarLines
 }
 
-% \score {
-%   <<
-%     \new PianoStaff  <<
-%       \new Staff \with {
-%         midiInstrument = "harpsichord"
-%         midiPanPosition = #0.8
-%       } \rightB
-%       \new Staff \with {
-%         midiInstrument = "harpsichord"
-%         midiPanPosition = #-0.8
-%       } \leftB
-%     >>
-%     \new Staff \with {
-%       \consists "Mark_engraver"
-%       midiInstrument = "harpsichord"
-%     } { \clef bass \pedalB }
-%   >>
-%   \layout{
-%     indent = 0.7\cm
-%   }
-%   \midi {
-%     \tempo 4=48
-%   }
-% }
+\score {
+  <<
+    \new PianoStaff  <<
+      \new Staff \with {
+        midiInstrument = "harpsichord"
+        midiPanPosition = #0.8
+      } \rightB
+      \new Staff \with {
+        midiInstrument = "harpsichord"
+        midiPanPosition = #-0.8
+      } \leftB
+    >>
+    \new Staff \with {
+      \consists "Mark_engraver"
+      midiInstrument = "harpsichord"
+    } { \clef bass \pedalB }
+  >>
+  \layout{
+    indent = 0.7\cm
+  }
+  \midi {
+    \tempo 4=48
+  }
+}
+
+\pageBreak
 
 globalC = {
   \key c \minor
@@ -715,6 +717,42 @@ rightC = \relative g' {
   es8 f es d c d es c
   as2. \prallprall g8 as
   g2~ g8 c h c
+  f8 g f es d es f d
+  es8 f es d c d es c
+  \barNumberCheck 145
+  d8 es d c h c d h
+  c8 des c b! as b c as
+  b8 c b as g as b g
+  as8 b as g f g as f
+  g8 as g f e f g e
+  \barNumberCheck 150
+  f4 c' f2~
+  f4 es8 d c d es c
+  d8 es d c h c d h
+  c1~
+  c8 d c d d4. \prallprall c16 d
+  \barNumberCheck 155
+  es1~
+  es8 f es f f4. \prallprall es16 f
+  g2 r
+  g,1
+  c1
+  \barNumberCheck 160
+  b4 c8 d es4 es,
+  as4  g f d'
+  g,4 a8 h c4 c,
+  f8 g f es d es f d
+  es8 f es d c d es f
+  \barNumberCheck 165
+  g8 as g f e f g e
+  f8 e f g as b c as
+  b8 c b as g as b g
+  as8 b as g f g as f
+  d1~
+  \barNumberCheck 170
+  d8 c' h a g c f,4
+  es2 d \tr
+  c1 \fermata
 }
 
 leftC = \relative c' {
@@ -875,6 +913,42 @@ leftC = \relative c' {
   c8 h c d es2~
   es4 d8 c h c d h
   c8 d es f g4 g,
+  a4. h8 h2 \trill
+  c1
+  \barNumberCheck 145
+  g'1
+  es4 f8 g as4 as,
+  des4 c b g'
+  c,4 d8 e f4 \clef "bass" f,
+  b8 c b as g as b g
+  \barNumberCheck 150
+  as8 b as g f g as f
+  g4 c, \clef "treble" c'2~
+  c4 h8 c d es f d
+  es8 f es d c d es c
+  as'8 b as g f g as f
+  \barNumberCheck 155
+  g8 as g f es d c h
+  c8 h c es d c h c
+  h8 g a h c h c d
+  es8 f es d c h c d
+  es8 d es f g f es f
+  \barNumberCheck 160
+  g8 as g f es2~
+  es2 d~
+  d2 c~
+  c2 h
+  c1~
+  \barNumberCheck 165
+  c1~
+  c1~
+  c1~
+  c1~
+  c8 h a h c es d c
+  \barNumberCheck 170
+  h4 g c2~
+  c8 h c a h4. \prall c8
+  c1 \fermata
 }
 
 pedalC = \relative c {
@@ -1049,6 +1123,43 @@ pedalC = \relative c {
   g, a8 h c4 c,
   f4 es d f
   es4 d c es
+  d2 g
+  c,4 g' c2~
+  \barNumberCheck 145
+  c4 h g'2~
+  g4 c, f2~
+  f2 e
+  f2 des
+  b2 c
+  \barNumberCheck 150
+  f,2 r4 f
+  c'2 r4 c
+  g2 r4 g'
+  c4 b! as g
+  f2 b
+  \barNumberCheck 155
+  es,4 d c es
+  as,1
+  g4 f' es d
+  c4 d es d
+  c4 b as2
+  \barNumberCheck 160
+  es'4 d c8 c' b c
+  f,2 r8 b as b
+  es,2 r8 as g as
+  d,2 g
+  c,4 d es c
+  \barNumberCheck 165
+  b'4 as g c,
+  as'4 g f c
+  g'4 f e c
+  f4 g as g
+  fis4 g a fis
+  \barNumberCheck 170
+  g4 f! es as!
+  g2
+  g,
+  c,1 \fermata \bar "|."
 }
 
 \score {
@@ -1057,16 +1168,16 @@ pedalC = \relative c {
       \new Staff \with {
         midiInstrument = "harpsichord"
         % midiPanPosition = #0.8
-      } << { \rightC } { s1 * 185 } >>
+      } << { \rightC } { s1 * 172 } >>
       \new Staff \with {
         midiInstrument = "harpsichord"
         % midiPanPosition = #-0.8
-      } << { \leftC } { s1 * 185 } >>
+      } << { \leftC } { s1 * 172 } >>
     >>
     \new Staff \with {
       \consists "Mark_engraver"
       midiInstrument = "harpsichord"
-    } << { \clef bass \pedalC } { s1 * 185 } >>
+    } { \clef bass \pedalC }
   >>
   \layout{
     indent = 0.7\cm

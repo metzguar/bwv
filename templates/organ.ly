@@ -14,6 +14,13 @@
   right-margin = 0.9\cm
   top-margin = 0.9\cm
   bottom-margin = 0.9\cm
+  %   left-margin = 0.7\cm
+  %   right-margin = 0.6\cm
+  %   top-margin = 0.6\cm
+  %   bottom-margin = 0.6\cm
   ragged-bottom = ##f
   ragged-last-bottom = ##f
 }
+
+tagline = "Copyright Urs Metzger 2021"
+tagline = ""
