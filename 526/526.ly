@@ -550,6 +550,8 @@ pedalB = \relative es {
 globalC = {
   \key c \minor
   \time 2/2
+  \override TrillSpanner.font-size = -1
+  \override TrillSpanner.to-barline = ##t
 }
 
 rightC = \relative g' {
@@ -685,7 +687,7 @@ rightC = \relative g' {
   es16 c g8 as4~ as8 des c b!
   \barNumberCheck 115
   c16 as e8 f4~ f8 b as g
-  as16([ g f8)] b16([ as g8)] c16( b as8) d!4~
+  as16[ g f8] b16[ as g8] c16 b as8 d4~
   d8 es b g' c, g' f es
   d8 es d c b as g f
   g8 es' as, f' g, es' f, d'
@@ -828,7 +830,7 @@ leftC = \relative c' {
   \barNumberCheck 70
   b16 g d8 es4~ es8 as! g f!
   g16 es h8 c4~ c8 f es d
-  es16([ d c8)] f16([ es d8)] g16( f es8) a!4~
+  es16[ d c8] f16[ es d8] g16 f es8 a!4~
   a8 b f d' g, d' c b
   a8 b a g f es d c
   \barNumberCheck 75
@@ -836,10 +838,10 @@ leftC = \relative c' {
   d,8 b' es, c' d, b' c, a'
   d,4 es d c
   b2 r4 b'
-  b1~ \startTrillSpan
+  \tieUp b1~ \startTrillSpan
   \barNumberCheck 80
   b1~
-  b8 \stopTrillSpan es, c' es, b' es, as d,
+  b8 \stopTrillSpan es, c' es, b' es, as d, \tieNeutral
   g8 as g f es f g es
   f8 g f es f b, g' b,
   as'8 b as g f g as f
@@ -871,7 +873,7 @@ leftC = \relative c' {
   c16 as e8 f4~ f8 b as g
   as16 f c8 des4~ des8 ges! f es!
   f16 des a8 b4~ b8 es des c
-  des16([ c b8)] es16([ des c8)] f16( es des8) g!4~
+  des16[ c b8] es16[ des c8] f16 es des8 g!4~
   g8 as es c' f, c' b as
   \barNumberCheck 110
   g8 as g f g es c as'
@@ -913,7 +915,7 @@ leftC = \relative c' {
   c8 h c d es2~
   es4 d8 c h c d h
   c8 d es f g4 g,
-  a4. h8 h2 \trill
+  a4. h8 h2 \tr
   c1
   \barNumberCheck 145
   g'1
@@ -1062,14 +1064,14 @@ pedalC = \relative c {
   \barNumberCheck 90
   es4 d c2~
   c2 h
-  c2 as
+  c2 as!
   f2 g
   c1
   \barNumberCheck 95
   g'1
   es4 f8 g as4 as,
   des4 c b g'
-  c,4 d8 e f4 f,
+  c,4 d!8 e f4 f,
   b4 as g b
   \barNumberCheck 100
   as4 g as b
@@ -1183,6 +1185,6 @@ pedalC = \relative c {
     indent = 0.7\cm
   }
   \midi {
-    \tempo 2=80
+    \tempo 2=84
   }
 }
