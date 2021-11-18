@@ -66,7 +66,7 @@ rightA = \relative f'' {
   cis8 e a, g'~
   g16 f e d f e d c!
   h8 d g, f'~
-  f16 e d c e( d c h)
+  f16 e d c e d c h
   \barNumberCheck 40
   a4~ a16 g a c
   h16 a h c h a h d
@@ -105,7 +105,7 @@ rightA = \relative f'' {
   r8 r32 a, g fis g16 a b c32 d
   \barNumberCheck 70
   es2~
-  es8~ es32 g, f e! f16 g a b32 c
+  \stemDown es8~ es32 g, f e! \stemNeutral f16 g a b32 c
   d2~
   d16 g f g c,4~ \prall
   c4 d~ \prall
@@ -122,7 +122,7 @@ rightA = \relative f'' {
   es8 \prall d r c
   c8 \prall h r h'
   \barNumberCheck 85
-  \tuplet 3/2 { c16 g es } \tuplet 3/2 { c es g } \tuplet 3/2 { b g es } \tuplet 3/2 {  c es g }
+  \tuplet 3/2 { c16 g es } \tuplet 3/2 { c es g } \tuplet 3/2 { b! g es } \tuplet 3/2 {  c es g }
   \tuplet 3/2 { a!16 f es } \tuplet 3/2 { c es f } \tuplet 3/2 { a16 f es } \tuplet 3/2 { c es f }
   \tupNumOff \tuplet 3/2 { b16 f d b d f a f d b d f }
   \tuplet 3/2 { g16 e! d b d e g e d b d e }
@@ -223,7 +223,7 @@ leftA = \relative c'' {
   \tupNumOff \tuplet 3/2 { es16 c a f a c es c as f as c }
   \barNumberCheck 60
   \tuplet 3/2 { d16 b as f as b d b as f as b }
-  d16 c32 h c8~ c16 b32 a b8~
+  d16 c32 h c8~ c16 b32 a! b8~
   b16 a32 g a8~ a16 g32 fis g8~
   g8 fis b e,!
   a8 d, d' fis,
@@ -255,7 +255,7 @@ leftA = \relative c'' {
   es16 \prall d es8~ es16 d es8
   es8 \clef "bass" f, r es'
   d16 cis d8~ d16 cis d8
-  d8 e, r \clef "treble" d'
+  d8 e,! r \clef "treble" d'
   cis8 e a, cis
   \barNumberCheck 90
   d8 f a, d16 cis
@@ -393,7 +393,7 @@ pedalA = \relative d {
   c8 r c' r
   f,8 r r4
   b,8 r b' r
-  e,8 r r4
+  e,!8 r r4
   a,2~
   \barNumberCheck 90
   a2~
@@ -426,246 +426,217 @@ pedalA = \relative d {
   \bar "||"
 }
 
-\score {
-  <<
-    \new PianoStaff  <<
-      \new Staff \with {
-        midiInstrument = "harpsichord"
-        midiPanPosition = #0.8
-      } \rightA
-      \new Staff \with {
-        midiInstrument = "harpsichord"
-        midiPanPosition = #-0.8
-      } \leftA
-    >>
-    \new Staff \with {
-      midiInstrument = "harpsichord"
-      \consists "Mark_engraver"
-    } { \clef bass \pedalA }
-  >>
-  \layout{
-    indent = 0.7\cm
-  }
-  \midi {
-    \tempo 4=66
-  }
-}
-
-\pageBreak
-
-globalB = {
-  \key es \major
-  \time 3/4
-}
-
-rightB = \relative b' {
-  \globalB
-  \tempo \markup { \huge "Largo" } r4 b2~
-  b2.~
-  b4 as2~
-  as4 g2~
-  \barNumberCheck 5
-  g16 es( f g as b c es des c b as)
-  f'8 d! as' f b16 b, c des
-  c8 as f es'~ es16 d c d
-  es2 r4
-  d16( f b a) b( f) f( es) es( d) d( c)
-  \barNumberCheck 10
-  c16( f a g) a( es) es( d) d( c) c( b)
-  b16( d g f) g( d) d( c) c( b) b( a)
-  a16( c f es) f( c) c( b) b( as) as( g)
-  g8 g'4 c8~ c16 es, d c
-  b'16( a g f) g( b) a( c) b4~
-  \barNumberCheck 15
-  b16 a c b a g f es c'8 es,
-  d16( c b c d e f g f e d! e)
-  f8 c f as! g f
-  es!16( d c d es f g as g f g as)
-  h,16 c d h g2~
-  \barNumberCheck 20
-  g16 h d f es d c b as4~
-  as16 c es g f es d c b4~
-  b16 des f as g f e d c4~
-  c16 e g b as g f as d,4~
-  d8 c16 h c d es8~ es16 f g as
-  \barNumberCheck 25
-  b,!16 c b a b c d8~ d16 es f g
-  as,!16 b as g as b c8~ c16 d es f
-  g,2.~
-  g16 c b as g f es d c es g b
-  a16 b a g f es d c b d f as
-  \barNumberCheck 30
-  g16 a g fis g e fis g a b c a
-  fis16 d e fis g a b c d es! f! d
-  es16 d c d es8 c a c'
-  g16fis e d e g fis a g4~
-  g16 fis a g fis e d c a'8 c,
-  \barNumberCheck 35
-  b4~ b16 c b as! b des c b
-  c4~ c16 d! c h c es d c
-  d4~ d16 es d c d f es d
-  es16 f es d es f g b as4~
-  as4 g2~
-  \barNumberCheck 40
-  g4 f2~
-  f4 es2~
-  es16 c d es f g as c b as g f
-  es16 d c h f'8 d g16 g, as! b
-  as8 f d c'~ c16 h a h
-  \barNumberCheck 45
-  c16 es d f es2~
-  es16 c d h c2~
-  c16 d( es fis a g fis es d c h c)
-  h2.
-}
-
-leftB = \relative g' {
-  \globalB
-  g16( b es d) es( b) b( as) as( g) g( f)
-  f16( b d c) d( as) as( g) g( f) f( es)
-  es16( g c b) c( g) g( f) f( es) es( d)
-  d16( f b as) b( f) f( es) es( des) des( c)
-  \barNumberCheck 5
-  c8 c'4 f8~ f16 as( g f
-  es16 d! c b c es d f) es4~
-  es16 d!( f es d c b as) f'8 as,
-  g16( f es f g a b c b a g a)
-  b4 f2~
-  \barNumberCheck 10
-  f2.~
-  f4 es2~
-  es4 d2~
-  d16 (b c d es f g b as g f es)
-  c'8 a es' c f16 f, g as
-  \barNumberCheck 15
-  g8 es c b'~ b16 a g a
-  b8 f b des c b
-  as16( g f g a h c d! c h a h)
-  c8 g c es d c
-  d8 g, d' f es d
-  \barNumberCheck 20
-  es4~ es16 f es d es g f es
-  f4~ f16 g f es f as g f
-  g4~ g16 as g f g b as g
-  as4 r16 es! d c h c d h
-  g16 f' es d es d c b! as4~
-  \barNumberCheck 25
-  as16 es' d c d c b as! g4~
-  g16 des' c h c b as g f4~
-  f16 g f es d c h a g h d f
-  es2.~
-  es4 d2~
-  \barNumberCheck 30
-  d4 c2~
-  c4 b2~
-  b16 g a b c d es g f es d c
-  a'8 fis c' a d16d, es! f
-  es8 c a g'~ g16 fis e fis
-  \barNumberCheck 35
-  g16 es d c \clef "bass" b a g f! es4~
-  es16 g b des c b as g f4~
-  f16 a c es d! c b as! g4~
-  g8 g'~ g16 f es d c d es c
-  d16 es d c b as g f es g b des
-  \barNumberCheck 40
-  c16 d! c h c a h c d es f d
-  h16 g a h \clef "treble" c d es f g as! b! g
-  as16 g f g as8 f d c'~ c16 h a g a c h d c4~
-  c16 h d c h a g f d'8 f,
-  \barNumberCheck 45
-  es16 g f as! g2~
-  g16 es f d es2~
-  es8 a c a es( \prall d16 es)
-  d2.
-}
-
-pedalB = \relative es {
-  \globalB
-  es4 g es
-  b'4 b, b'
-  c,4 f as
-  b,4 es g
-  \barNumberCheck 5
-  as,2.~
-  as4 f' g
-  as4 b b,
-  es4 d c
-  b4 d b
-  \barNumberCheck 10
-  f'4 f, f'
-  g4 c, es
-  f4 b, d
-  es2.~
-  es4 c d
-  \barNumberCheck 15
-  es4 f f,
-  b4 as! g
-  f4 es d
-  c4 b' as
-  g4 h g
-  \barNumberCheck 20
-  c8 h c c, r c'
-  d8 c d d, r d'
-  e8 d! e e, r e'
-  f8 e f f, r f'
-  es!8 g c g f es
-  \barNumberCheck 25
-  d8 f b f es d
-  c8 es as es d c
-  h8 d g f es d
-  c8 g' c b! a g
-  f8 b, b' as! g f
-  \barNumberCheck 30
-  es8 a, a' g fis e
-  d8 g, g' f! es! d
-  c2.~
-  c4 a b
-  c4 d d,
-  \barNumberCheck 35
-  g'8 fis g g, r g'
-  as8 g as as, r a'
-  b8 a b b, r h'
-  c8 h c c, r c'
-  b!8 b, es d c b
-  \barNumberCheck 40
-  as8 as' d, c h a
-  g8 g' c, b! as! g
-  f2.~
-  f4 d' es
-  f4 g g,
-  \barNumberCheck 45
-  c4~ c16 es d f es g c, es
-  as,4~ as16 c h d c es as, c
-  fis,2.
-  g2. \bar "|." \fermataOverBarLines
-}
-
 % \score {
 %   <<
 %     \new PianoStaff  <<
 %       \new Staff \with {
 %         midiInstrument = "harpsichord"
 %         midiPanPosition = #0.8
-%       } \rightB
+%       } \rightA
 %       \new Staff \with {
 %         midiInstrument = "harpsichord"
 %         midiPanPosition = #-0.8
-%       } \leftB
+%       } \leftA
 %     >>
 %     \new Staff \with {
-%       \consists "Mark_engraver"
 %       midiInstrument = "harpsichord"
-%     } { \clef bass \pedalB }
+%       \consists "Mark_engraver"
+%     } { \clef bass \pedalA }
 %   >>
 %   \layout{
 %     indent = 0.7\cm
 %   }
 %   \midi {
-%     \tempo 4=48
+%     \tempo 4=66
 %   }
 % }
 
-\pageBreak
+globalB = {
+  \key f \major
+  \time 6/8
+}
+
+rightB = \relative c'' {
+  \globalB
+  \tempo \markup { \huge "Adagio e dolce" }
+  \repeat volta 2 {
+    c4 d8 g,4 a8
+    \tuplet 3/2 { b16[ a b] } g'8 \tieUp b,~ b8 \prall a r
+    f'8 e es~ es16 d32 c d16 e32 f e16 f32 g
+    f4.~ f8 e r
+    \barNumberCheck 5
+    g,16 c32 d e16 e32 f g16 g32 f e16 e32 f g16 g32 a b16 a32 g
+    f4.~ f8 e r
+    e8. f32 e d c h a g8 a h
+  }
+  \alternative {
+    { c32 h a8 d f,16 f8 \prall e r }
+    { c'32 h a8 d f,16 f8 \prall e r }
+  }
+  \barNumberCheck 10
+  \repeat volta 2 {
+    e'4 f8 h,4 c8
+    \tuplet 3/2 { d16[ c d] } g,8 h~ h c r
+    fis4.~ \downprall fis8 g16 b32 a g f e16
+    d32 cis d8 gis32 a h16 d, d8 \prall cis!16 d e8~
+    e32 d \setBeamCounts 2 1 cis16 \setBeamCounts 1 2 d a8 b16 e,4 \prall f8
+    \barNumberCheck 15
+    \tuplet 3/2 { g16[ f g] } e'8 g,~ g\prall f r
+    b32 a g b a g f a g16 cis32 e g4.~
+    g32 f e d e8 cis \prall cis( d) r
+    r8 r d~ d32 b! c! d c a! b c b g a b
+    a8 b \mordent c~ c32 a b c b g a b a f g a
+    \barNumberCheck 20
+    g4.~ g16 f32 g a16 a32 b c16 c32 d
+    es16 d32 es f16 d b g' e8. d16 c8
+    a'4 \mordent b8 e,4 f8
+    \tuplet 3/2 { g16[ f g] } c,8 e~ e f \mordent r
+    as,32 g as8 d32 es f16 as, as8 \prall g d'~
+    \barNumberCheck 25
+    d8 cis4~ \prall cis8 d16 es32 d c b a g
+    a8 d, r r4 f'8~
+    f8 e es~ es16 d32 c d16 e32 f e16 f32 g
+    f4.~ f8 e es~
+    es8 d des~ des16 c32 b c16 d32 es d16 es32 f
+    \barNumberCheck 30
+    es4.~ es8 d r
+    g,16 c32 d e!16 e32 f g16 g32 f e16 e32 f g16 g32 a b16 a32 g
+    f4.~ f8. g32 f e d c b
+  }
+  \alternative {
+    { a8 f' e e( f) \mordent r }
+    { a,8 f' e e( f) \mordent r }
+  }
+}
+
+leftB = \relative a' {
+  \globalB
+  \repeat volta 2 {
+    a4 b8 e,4 f8
+    \tuplet 3/2 { g16[ f g] } c,8 e~ e f r
+    R2.
+    b8 a as~ as16 g32 f g16 a32 b! a16 b32 c
+    \barNumberCheck 5
+    b4.~ b8 a r
+    d,16 g32 a h16 h32 c d16 d32 c h16 h32 c d16 d32 e f16 e32 d
+    c4.~ c8. d32 c h a g f
+  }
+  \alternative {
+    { e8 c' h h( c) r }
+    { e,8 c' h h( c) r }
+  }
+  \barNumberCheck 10
+  \repeat volta 2 {
+    g4 a8 d,4 e8
+    \tuplet 3/2 { f16[ e f] } d'8 f,~ f \prall e r
+    es32 d es8 a32 b c16 es, es8 \prall d r
+    gis4.~ \downprall gis8 a16 b!32 a g f e16
+    f4 g8 cis,4 \prall d8
+    \barNumberCheck 15
+    \tuplet 3/2 { e16[ d e] } a,8 cis~ cis d \mordent r
+    r4 r8 e32 d cis e d cis h d cis16 e32 a
+    d8~ d32 cis h a e'16 g, g8([ \prall f) \appoggiatura { f16 g } as8~]
+    as32 f g as g es f g f d es f es8 f \mordent g~
+    g32 es f g f d es f es c d es d4.~
+    \barNumberCheck 20
+    d16 c32 d e16 e32 f g16 g32 a b16 a32 b c16 a f8~
+    f8 b d~ d32 c h c g'4~
+    g16 f32 \setBeamCounts 3 1 e \setBeamCounts 1 2 f16 c8 d16 g,4 a8
+    \tuplet 3/2 { b16[ a b] } g'8 b,~ b8 \prall a c~
+    c8 h4~ \prall h8 c16 d32 es d c b a!
+    \barNumberCheck 25
+    g32 fis g8 cis32 d e!16 g, g8 \prall fis!16 a c8~
+    c8 h b~ b16 a32 g a16 h32 c h16 c32 d
+    c4.~ c8 h b~
+    b8 a as~ as16 g32 f g16 a32 b a16 b32 c
+    b4.~ b8 a r
+    \barNumberCheck 30
+    c,16 f32 g a16 a32 b c16 c32 b a16 a32 b c16 c32 d es16 d32 c
+    b4.~ b8 a r
+    a8. b32 a g f e d c8 d e
+  }
+  \alternative {
+    { f32 e d8 g b,16 b8( a) \prall r }
+    { f'32 e d8 g b,16 b8( a) \prall r }
+  }
+}
+
+pedalB = \relative f {
+  \globalB
+  \repeat volta 2 {
+    f8 f, f'~ f f, f'~
+    f8 e c f8. a16 g b
+    a16 c g b a c
+    b8 a g
+    d'16 d, c c' h h, c8 c' r
+    \barNumberCheck 5
+    r8 g e c cis r
+    r8 d h g gis r
+    a8 g! f e f g
+  }
+  \alternative {
+    { a8 f g c,8. c'16 e c }
+    { a8 f g c,4. }
+  }
+  \barNumberCheck 10
+  \repeat volta 2 {
+    c''8 c, c'~ c c, c'~
+    c8 h g c8. a16 b g
+    a8 c a b b, r
+    h8 e e, a a' cis,
+    d8 d, d'~ d d, d'~
+    \barNumberCheck 15
+    d8 cis a d8. e16 f d
+    g8 f e cis' h a
+    b!8 g a d,8. es16 c! d
+    h8 h' g c, d es
+    f8 g a b g f
+    \barNumberCheck 20
+    e!8 c e f f, a
+    b8 d g, c8. d16 e c
+    f8 f, f'~ f f, f'~
+    f8 e c f8. d16 es c
+    d8 f d es es, r
+    \barNumberCheck 25
+    e' a a, d8. fis16 e g
+    fis16 a g a f g e8 f d
+    a'16 b g a fis a g8 g, cis
+    d16e c! d h d c8 c' fis,
+    g16 a f! g e! g f8 f, r
+    \barNumberCheck 30
+    r8 c'' a f fis r
+    r8 g e c cis r
+    d8 c! b a b c
+  }
+  \alternative {
+    { d8 b c f,8. f'16 a f }
+    { d8 b c f,4. }
+  } \bar "|."
+}
+
+\score {
+  <<
+    \new PianoStaff  <<
+      \new Staff \with {
+        midiInstrument = "harpsichord"
+        midiPanPosition = #0.8
+      } \rightB
+      \new Staff \with {
+        midiInstrument = "harpsichord"
+        midiPanPosition = #-0.8
+      } \leftB
+    >>
+    \new Staff \with {
+      midiInstrument = "harpsichord"
+    } { \clef bass \pedalB }
+  >>
+  \layout{
+    indent = 0.7\cm
+  }
+  \midi {
+    \tempo 8=85
+  }
+}
 
 globalC = {
   \key c \minor
