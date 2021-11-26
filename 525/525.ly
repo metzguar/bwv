@@ -11,7 +11,11 @@
 
 globalA = {
   \key es \major
-  \time 4/4
+  \time 2/2
+  \set Timing.beamExceptions = #'()
+  \set Timing.baseMoment = #(ly:make-moment 1/4)
+  \set Timing.beamExceptions = #'((end . (((1 . 8) . (4 4))
+                                          ((1 . 16) . (4 4 4 4)))))
 }
 
 rightA = \relative b' {
@@ -42,7 +46,7 @@ rightA = \relative b' {
   d8 b f b16c des8 b e, des'
   c16 b a g f es! d! c d8 b' c, a'!
   b8  d f4 b,8 es g4~
-  g16 b a g f8 es \prall d c16 d es d c b
+  g16 b a g f8 es d c16 d es d c b
   es16 as,! g f es g as b c b as g f b c d
   \barNumberCheck 25
   es8. f16 d8. \prall es16 es8 b es4~
@@ -85,7 +89,7 @@ rightA = \relative b' {
   des16 as g f es g as b c b as g f b c d
   es16 c b as g d' es f b, es f g c, f b, as
   g8 es' f, d'
-  \appoggiatura d4 es2 \fermata
+  \appoggiatura d8 es2 \fermata
 }
 
 leftA = \relative es' {
@@ -119,7 +123,7 @@ leftA = \relative es' {
   R1
   es8 g b4 es,8 as c4~
   \barNumberCheck 25
-  c16 es d c b8 as \prall g8 f16 g as g f es
+  c16 es d c b8 as g8 \prall f16 g as g f es
   f8 f b4~ b16 as g as b as g f
   g8 g c4~ c8 f, g16 as b8~
   b8 es, f16 g as8~ as g16 f e f g8~
@@ -149,7 +153,7 @@ leftA = \relative es' {
   as8 f c f16 g as8 f b, as'
   g8 es b es16 f ges8 es a, ges'
   \barNumberCheck 50
-  f16 es d c b as! g! f g8[ es' f,] b'~
+  f16 es d c \clef "bass" b as! g! f g8 es' f, \clef "treble" b'~
   b16 as g b as g f es c'2~
   c16 as b c b as g f es8 b' es4~
   es16 g, as b as g f es as g as c b as g f
@@ -157,8 +161,8 @@ leftA = \relative es' {
   \barNumberCheck 55
   es16 d c b b'8 as g4 \prall f \prall
   es8 g b4 es,8 as c4~
-  c16 es d c b8 as \prall g8 es'4 d8
-  es16 d c b as g f b \appoggiatura as4 g2 \fermata
+  c16 es d c b8 as g8 es'4 d8
+  es16 d c b as g f b \appoggiatura as8 g2 \fermata
 }
 
 pedalA = \relative es {
@@ -269,7 +273,11 @@ rightB = \relative g'' {
   \clef "treble"
   \repeat volta 2 {
     \tempo \markup { \huge "Adagio" } \partial 8 g8
-    c,4 \appoggiatura { c16 d } es8 \appoggiatura es8 d4 g,8 c8. h16 c8 c,4 c'8~
+    <<
+      { \hide b8\rest } \\
+      { c,4 \moveTS #'( -3.6 . -2.5 ) es8 ^\schleifer }
+    >>
+    \appoggiatura es8 d4 g,8 c8. h16 c8 c,4 c'8~
     c16 es d f as c, h d as g f'8~ f16 d es g c g fis a es d c'8~
     c16 a b g es8~ es16 c d f b8~ b16 g c, es d c d b g b d es
     a,16 g fis a c8~ c g' fis g4 r8 r4 g8~
@@ -286,7 +294,7 @@ rightB = \relative g'' {
   }
   \repeat volta 2 {
     r8
-    r2. r4 r8 r4 g8
+    r2. r4. r4 g8
     c4 as8 b4 es8 as,8. b16 as8 as'16 es des c ges'8
     \barNumberCheck 15
     r16 f es des as' g! as4.~ as16 g f es b' a b4.~
@@ -295,7 +303,7 @@ rightB = \relative g'' {
     as16 b c8 b as des,8. b16 c g as8 r g16 b des, g b8~
     b16 b, c es f des es g as b c8~ c16 c, des! f b ges f es a c es c
     \barNumberCheck 20
-    des16 es f8 es des g,!4~ g8 c as! f h c~
+    des16 es f8 es des g,!4~ g8 c as! f h( c)
     c16 d,! e g b!8~ b16 c b as b g as e! f as des8~ des16 h c es! as8~
     as16 g f g as f \appoggiatura es8 d4 g8 c,4 es8 d4 g,8
     c8. h16 c8 d,4 c'8~ c16 a h! d g e des c e g b! g
@@ -314,15 +322,15 @@ leftB = \relative d'' {
   \repeat volta 2 {
     \partial 8 r8
     R1.
-    r2. r4 r8 r4 d8
-    g,4 \appoggiatura { g16 a } b8 \appoggiatura b8 a!4 d,8 g8. fis16 g8 g,4 g'8~
+    r2. r4. r4 d8
+    g,4 \moveTS #'(-3.5 . -3.5) b8 ^\schleifer \appoggiatura b8 a!4 d,8 g8. fis16 g8 g,4 g'8~
     g16 b a c es g, fis a es d c'8~ c16 a b d g e des c e g b g
     \barNumberCheck 5
     as4 r8 r4 f8~ f16 f, g b es c b as c es g es
     f4 r8 r4 d8~ d16 d, es g c as g f h d f d
     es16 f g8 f es as8. f16 g16 d es8 r d16 f as, d f8~
     f16 f, g b c as b d es f g8~ g16 g, as c f des c b e g b g
-    as16 b c8 b as d,!4~ d8 g es c fis( g)
+    as16 b c8 b as d,!4~ d8 g es c( fis g)
     \barNumberCheck 10
     g16 \mordent a, h d f!8~ f16 g f es f d
     es4 r8 r4 es,8~
@@ -336,7 +344,7 @@ leftB = \relative d'' {
     \barNumberCheck 15
     f4.~ f16 g! f es f d! b8. c16 des8 g,16 as! g f g e
     c4 f8 b, des c~ c f4~ f16 as! g! f e f
-    e4 r8 r16 c e g b g as e f8 r e16 g b, e g8~
+    e4 r8 r16 c e g b g as e! f8 r e16 g b, e g8~
     g16 g, as c des b c e f as b8~ b16 b, c es as f es des! g b des b
     c16 des es8 des c f8. es16 des!16 a b8 r a16 c es, a c8~
     \barNumberCheck 20
@@ -386,7 +394,7 @@ pedalB = \relative c' {
     as8. g16 as8 as,4 a'8 b4 des8 c4 f,8
     \barNumberCheck 20
     b8. a16 b8 b,4 e8 f4 es8 des4.
-    c4 d!8 e g e f4 f,8 es!4 es'8
+    c4 d!8 e c e f4 f,8 es!4 es'8
     d4 c8 h g h c4 c'8 b!4 b,8
     as4 g8 fis d fis g g' f! e d! c
     f,8 f' es! d c b es, es' d c b as
@@ -467,7 +475,7 @@ rightC = \relative es' {
     f16 b a b es, b' d, b' es, b' c, b'
     \barNumberCheck 30
     d,4~ d16 b c d es f g a
-    b8[ b,] c r a4 \tr
+    b8[ b,] c r a4 \prall
     b2.
   } \pageTurn
   \repeat volta 2 {
@@ -493,7 +501,7 @@ rightC = \relative es' {
     r16 b, as b f b as b des b as b
     g8 r des' r des r
     r16 as ges as es as ges as c as ges as
-    f16 b a b f b a b des b a b
+    f16 b a b f b a b des b as b
     g8 b es2~
     \barNumberCheck 55
     es16 es, des es as es des es c' as g as
@@ -505,7 +513,7 @@ rightC = \relative es' {
     g16 es' d es as, es' g, es' as, es' f, es'
     g,8 b' c b c as
     b16 es, f g as4~ as16 g as f
-    b8[ es,] f8 r d4 \tr
+    b8[ es,] f8 r d4
     es2.
   }
 }
@@ -534,7 +542,7 @@ leftC = \relative b {
     d8 r as' r as r
     \barNumberCheck 20
     r16 es des es b es des es g es des es
-    c16 f e f c f e f as f e f
+    c16 f e f c f e f as f es f
     d!8 f b2~
     b16 b, as b es  b as b g' es d es
     a16 b a g f d' c b a g f es
@@ -546,7 +554,7 @@ leftC = \relative b {
     d,8 f g f g es
     \barNumberCheck 30
     f16 b, c d es4~ es16 d es c
-    f8[ d] es r c4 \tr
+    f8[ d] es r c4
     d2.
   }
   \repeat volta 2 {
@@ -586,7 +594,7 @@ leftC = \relative b {
     es8 b' c b c as
     b16 es d es as, es' g, es' as, es' f, es'
     g,4~ g16 es f g as b c d
-    es8[ g,] as r f4 \tr
+    es8[ g,] as r f4
     g2.
   }
 }

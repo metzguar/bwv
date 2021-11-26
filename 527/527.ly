@@ -3,9 +3,9 @@
 \include "../macros/macros.ly"
 
 \header {
-  title = "Sonata 3"
-  subtitle = "BWV 527"
-  composer = "Johann Sebastian Bach"
+  %   title = "Sonata 3"
+  %   subtitle = "BWV 527"
+  %   composer = "Johann Sebastian Bach"
   tagline = \tagline
 }
 
@@ -614,668 +614,176 @@ pedalB = \relative f {
   } \bar "|."
 }
 
+% \score {
+%   <<
+%     \new PianoStaff  <<
+%       \new Staff \with {
+%         midiInstrument = "harpsichord"
+%         midiPanPosition = #0.8
+%       } \rightB
+%       \new Staff \with {
+%         midiInstrument = "harpsichord"
+%         midiPanPosition = #-0.8
+%       } \leftB
+%     >>
+%     \new Staff \with {
+%       midiInstrument = "harpsichord"
+%     } { \clef bass \pedalB }
+%   >>
+%   \layout{
+%     indent = 0.7\cm
+%   }
+%   \midi {
+%     \tempo 8=85
+%   }
+% }
+
+globalC = {
+  \key d \minor
+  \time 3/8
+  \set Timing.beamExceptions = #'()
+  \set Timing.baseMoment = #(ly:make-moment 1/8)
+  \set Timing.beamExceptions = #'((end . (
+                                           ((1 . 8) . (3))
+                                           ((1 . 16) . (6))
+                                           ((1 . 24) . (3 3))
+                                           ((1 . 32) . ())
+                                           )))
+}
+
+rightC = \relative g' {
+  \globalC
+  \tempo \markup { \huge "Vivace" }
+  a4 d32 e f16
+  e4 a,8~
+  a16 d c b a g
+  c32 b a16 b32 a g16 f8~
+  \barNumberCheck 5
+  f16 g a b a g
+  cis16 g a b a g
+  e'16 g, a b a g
+  f16 e g f e d
+  d16 c! h a f'8~
+  \barNumberCheck 10
+  f16 e e' d c h
+  a16 h h8. \prallprall a32 h
+  c8. e16 gis h
+  a8 a, f'~
+  f8 h, d~
+  \barNumberCheck 15
+  d8 gis, h~
+  h8 e, a~
+  \tuplet 3/2 { a16 g! f } \tuplet 3/2 { g f e } \tuplet 3/2 { d e f }
+  g,8 c'4~
+}
+
+leftC = \relative e' {
+  \globalC
+  R4. * 8
+  e4 a32 h c16
+  \barNumberCheck 10
+  h4 e,8~ e16 a g f e d
+  g32 f e16 f32 e d16 c8~
+  c16 d e f e d
+  gis16 d e f e d
+  \barNumberCheck 15
+  h'16 d, e f e d
+  c16 h d c h a
+  b!8 b'!4~
+  \tuplet 3/2 { b16 a g } \tuplet 3/2 {  a g fis } \tuplet 3/2 { e fis g }
+  a,8 d'4~
+  \barNumberCheck 20
+  \tuplet 3/2 { d16 c h } \tuplet 3/2 {  c h a } \tuplet 3/2 {  gis a h }
+  c,8 f'4~
+  \tuplet 3/2 { f16 e d }  \tuplet 3/2 { e d cis } \tuplet 3/2 {  h cis d }
+  e,8 a'4~
+  \tuplet 3/2 { a16 g f } \tuplet 3/2 { b a g } \tuplet 3/2 { f g e }
+  \barNumberCheck 25
+  f16 e d c b8~
+  b16 e, a g f e
+  d16 e e8. \prallprall d32 e
+  f8. a16 cis e
+  d8 d, b'~
+  \barNumberCheck 30
+  b8 e, g~
+  g8 cis, e~
+  e16 a, d c! b a
+  b8 d g~
+  g8 cis,16 b' a g
+  \barNumberCheck 35
+  f8 g e
+  d4 r
+}
+
+pedalC = \relative d {
+  \globalC
+  d8 d' d
+  c c c
+  b b b
+  a a a
+  \barNumberCheck 5
+  b g e
+  a a, h
+  cis a cis
+  d c! h
+  a a' a
+  \barNumberCheck 10
+  g g g
+  f f f
+  e e e
+  f d h
+  e e, fis
+  \barNumberCheck 15
+  gis e gis
+  a h c
+  d e f
+  e fis g
+  fis gis a
+  \barNumberCheck 20
+  gis a h
+  a h c
+  h cis d
+  cis a g!
+  f g a
+  \barNumberCheck 25
+  d, d' d
+  c c c
+  b b b
+  a a a
+  b g e
+  \barNumberCheck 30
+  a a, h
+  cis a cis
+  d d, d'
+  g, b g
+  a4 r8
+  \barNumberCheck 35
+  b g a
+  d, f a
+  d
+}
+
 \score {
   <<
     \new PianoStaff  <<
       \new Staff \with {
         midiInstrument = "harpsichord"
         midiPanPosition = #0.8
-      } \rightB
+      } \rightC
       \new Staff \with {
         midiInstrument = "harpsichord"
         midiPanPosition = #-0.8
-      } \leftB
+      } \leftC
     >>
     \new Staff \with {
+      \consists "Mark_engraver"
       midiInstrument = "harpsichord"
-    } { \clef bass \pedalB }
+    } { \clef bass \pedalC }
   >>
   \layout{
     indent = 0.7\cm
   }
   \midi {
-    \tempo 8=85
+    \tempo 8=160
   }
 }
-
-globalC = {
-  \key c \minor
-  \time 2/2
-  \override TrillSpanner.font-size = -1
-  \override TrillSpanner.to-barline = ##t
-}
-
-rightC = \relative g' {
-  \globalC
-  \tempo \markup { \huge "Allegro" } g1
-  c1
-  b4 c8 d es4 es,
-  as4 g f d'
-  \barNumberCheck 5
-  g,4 a8 h c4 c,
-  f8 g f es d es f d
-  es8 f es d c d es c
-  d4 c' h d
-  g,4 f'~ f8 es d c
-  \barNumberCheck 10
-  d4 g, c2~
-  c2 b~
-  b2 a~
-  a2 g~
-  g2 fis
-  \barNumberCheck 15
-  g4 d b' g
-  c8 d c b a b c a
-  b8 c b a g4 g'
-  c,4 d8 es d4 c
-  h8 c d h c4 es
-  \barNumberCheck 20
-  as,4 b8 c b4 as
-  g4 a8 h c2~
-  c4 h8 c d4 f,
-  es8 f es d c d es c
-  d8 es d c b c des b
-  \barNumberCheck 25
-  c2 r4 as''
-  h,4 c8 d es2~
-  es4 d8 c h c d h
-  c8 d es f g4 g,
-  a4. h8 h2 \tr
-  \barNumberCheck 30
-  c1
-  g'1
-  es4 f8 g as4 as,
-  des4 c b g'
-  c,4 d!8 e f4 f,
-  \barNumberCheck 35
-  b8 c b as g as b g
-  as8 b as g f g as f
-  g4 c, c'2~
-  c4 h8 c d es f d
-  es8 f es d c d es c
-  \barNumberCheck 40
-  as'8 b as g f g as f
-  g8 as g f es d c h
-  c8 h c es d c h c
-  h8 g a h c h c d
-  es8 f es d c h c d
-  \barNumberCheck 45
-  es d es f g f es f
-  g8 as g f es2~
-  es2 d~
-  d2 c~
-  c2 h
-  \barNumberCheck 50
-  c1~
-  c1~
-  c1~
-  c1~
-  c1~
-  \barNumberCheck 55
-  c8 h a h c es d c
-  h4 g c2~
-  c8 h c a h4. \prall c8
-  c2 r4 es
-  d16 h fis8 g2 es'4
-  \barNumberCheck 60
-  d16 h fis8 g2 as'4
-  g16 es h8 c4~ c8 f es d
-  es16 c g8 as4~ as8 des c b!
-  c16 as e8 f4~ f8 b as g
-  as16([ g f8)] b16([ as g8)] c16( b as8) d!4~
-  \barNumberCheck 65
-  d8 es b g' c, g' f es
-  d8 es d c d b g es'
-  fis,4. a16 c! d4. b16 g
-  fis4. a16 c! d8 g, c fis,!
-  g4 d'16 c d8 e16 d e8 fis16[ e fis8]
-  \barNumberCheck 70
-  g4 b,16 as! b8 c16 b c8 d16[ c d8]
-  es4 g,16 f g8 a16 g a8 h16[ a h8]
-  c2~ c4. d16 es
-  f8 d b2 g'4~
-  g8 e f4 r f
-  \barNumberCheck 75
-  f1~ \startTrillSpan
-  f1~
-  f8 \stopTrillSpan b, g' b, f' b, es a,
-  d8 es d c b as! g f
-  g8 es' as, f' g, es' f, d'
-  \barNumberCheck 80
-  g,8 es' as, f' g, es' f, d'
-  g,4 as g f
-  es4 b'' g es~
-  es4 d8 c d f e g
-  f4 c' as f~
-  \barNumberCheck 85
-  f4 es!8 d es4 fis,
-  g1
-  c1
-  b4 c8 d es4 es,
-  as!4 g f d'
-  \barNumberCheck 90
-  g,4 a8 h c4 c,
-  f8 g f es d es f d
-  es8 f es d c d es c
-  d4 c' h d~
-  d4 c8 d es4 c~
-  \barNumberCheck 95
-  c8 h a g f'2~
-  f4 es8 d c2~
-  c4 b!8 as! g as b g
-  as8 b as g f g as f
-  des'2. g,4
-  \barNumberCheck 100
-  c8 f e d c4 b
-  as2 g
-  f2 r
-  R1 * 7
-  \barNumberCheck 110
-  r2 r4 es'
-  d16 h fis8 g2 es'4
-  d16 h fis8 g2 as'4
-  g16 es h8 c4~ c8 f es d
-  es16 c g8 as4~ as8 des c b!
-  \barNumberCheck 115
-  c16 as e8 f4~ f8 b as g
-  as16[ g f8] b16[ as g8] c16 b as8 d4~
-  d8 es b g' c, g' f es
-  d8 es d c b as g f
-  g8 es' as, f' g, es' f, d'
-  \barNumberCheck 120
-  g,8 es' as, f' g, es' f, d'
-  g,4 as g f
-  es2 r4 es'
-  es1~ \startTrillSpan
-  es~
-  \barNumberCheck 125
-  es8 \stopTrillSpan as, f' as, es' as, des g,
-  c8 des c b as b c as
-  b8 c b as b es, c' es,
-  des'8 es des c b c des b
-  c8 des c b c f, d' f,
-  \barNumberCheck 130
-  es'8 f es d es c as f'
-  g,1
-  c1
-  b4 c8 des es4 es,
-  as4 g f des'
-  \barNumberCheck 135
-  g,4 as8 b c4 c,
-  f8 g f es d! es f d
-  es4 c as'2~
-  as4 g g'2~
-  g4 f8 es d es f d
-  \barNumberCheck 140
-  es8 f es d c d es c
-  as2. \prallprall g8 as
-  g2~ g8 c h c
-  f8 g f es d es f d
-  es8 f es d c d es c
-  \barNumberCheck 145
-  d8 es d c h c d h
-  c8 des c b! as b c as
-  b8 c b as g as b g
-  as8 b as g f g as f
-  g8 as g f e f g e
-  \barNumberCheck 150
-  f4 c' f2~
-  f4 es8 d c d es c
-  d8 es d c h c d h
-  c1~
-  c8 d c d d4. \prallprall c16 d
-  \barNumberCheck 155
-  es1~
-  es8 f es f f4. \prallprall es16 f
-  g2 r
-  g,1
-  c1
-  \barNumberCheck 160
-  b4 c8 d es4 es,
-  as4  g f d'
-  g,4 a8 h c4 c,
-  f8 g f es d es f d
-  es8 f es d c d es f
-  \barNumberCheck 165
-  g8 as g f e f g e
-  f8 e f g as b c as
-  b8 c b as g as b g
-  as8 b as g f g as f
-  d1~
-  \barNumberCheck 170
-  d8 c' h a g c f,4
-  es2 d \tr
-  c1 \fermata
-}
-
-leftC = \relative c' {
-  \globalC
-  R1 * 8
-  c1
-  \barNumberCheck 10
-  g'1
-  f4 g8 a b4 b,
-  es4 d c a'
-  d,4 e8 fis g4 g,
-  c8 d c b a b c a
-  \barNumberCheck 15
-  b8 c b a g a b g
-  a4 g' fis a~
-  a8 d, g a b a g b
-  as!8 b as g f g as f
-  g8 as g f es f g es
-  \barNumberCheck 20
-  f8 g f es d es f d
-  es8 f es d c d es c
-  d8 es d c h c d h
-  c4 es as2~
-  as2 g~
-  \barNumberCheck 25
-  g4 f8 es d! es f d
-  es8 f es d c d es c
-  \clef "bass" as2~ as8 g f as
-  g2~ g8 c h c
-  \clef "treble" f8 g f es d es f d
-  \barNumberCheck 30
-  es8 f es d c d es c
-  d8 es d c h c d h
-  \clef "bass" c8 d c b! as b c as
-  b8 c b as g as b g
-  as8 b as g f g as f
-  \barNumberCheck 35
-  g8 as g f e f g e
-  f4 \clef "treble" c' f2~
-  f4 es!8 d c d es c
-  d8 es d c h c d h
-  c1~
-  \barNumberCheck 40
-  c8 d c d d4. \prallprall c16 d
-  es1~
-  es8 f es f f4. \prallprall es16 f
-  g2 r
-  g1
-  \barNumberCheck 45
-  c1
-  b4 c8 d es4 es,
-  as4 g f d'
-  g,4 a8 h c4 c,
-  f8 g f es d es f d
-  \barNumberCheck 50
-  es8 f es d c d es f
-  g8 as g f e f g e
-  f8 e f g as b c as
-  b8 c b as g as b g
-  as8 b as g f g as f
-  \barNumberCheck 55
-  d1~
-  d8 c' h a g c f,4
-  es4. d8 d4. \prall c8
-  c2 r
-  R1 * 6
-  \barNumberCheck 65
-  R1
-  r2 r4 b'
-  a16 fis cis8 d2 b'4
-  a16 fis cis8 d2 es'4
-  d16 b fis8 g4~ g8 c b a
-  \barNumberCheck 70
-  b16 g d8 es4~ es8 as! g f!
-  g16 es h8 c4~ c8 f es d
-  es16[ d c8] f16[ es d8] g16 f es8 a!4~
-  a8 b f d' g, d' c b
-  a8 b a g f es d c
-  \barNumberCheck 75
-  d8 b' es, c' d, b' c, a'
-  d,8 b' es, c' d, b' c, a'
-  d,4 es d c
-  b2 r4 b'
-  \tieUp b1~ \startTrillSpan
-  \barNumberCheck 80
-  b1~
-  b8 \stopTrillSpan es, c' es, b' es, as d, \tieNeutral
-  g8 as g f es f g es
-  f8 g f es f b, g' b,
-  as'8 b as g f g as f
-  \barNumberCheck 85
-  g8 as g f g c, a' c,
-  b'8 c b a g a b g
-  a8 b a g fis g a fis
-  g1
-  c1
-  \barNumberCheck 90
-  b4 c8 d es4 es,
-  as!4 g f d'
-  g,4 a8 h c4 c,
-  f8 g f es d es f d
-  es8 f es d c d es c
-  \barNumberCheck 95
-  d4 c' h d~
-  d4 c8 h c d es c
-  f1~
-  f8 e f g as2~
-  as4 g8 f e f g e
-  \barNumberCheck 100
-  f2. g4
-  c,4 f2 e4
-  f2 r4 as,
-  g16 e h8 c2 as'4
-  g16 e h8 c2 des'4
-  \barNumberCheck 105
-  c16 as e8 f4~ f8 b as g
-  as16 f c8 des4~ des8 ges! f es!
-  f16 des a8 b4~ b8 es des c
-  des16[ c b8] es16[ des c8] f16 es des8 g!4~
-  g8 as es c' f, c' b as
-  \barNumberCheck 110
-  g8 as g f g es c as'
-  h,4. d16 f g4. es16 c
-  h4. d16 f g8 c, f h,!
-  c4 g'16 f g8 a16 g a8 h16[ a h8]
-  c4 es,16 des es8 f16 es f8 g16[ f g8]
-  \barNumberCheck 115
-  as4 c,16 b c8 d!16 c d8 e16[ d e8]
-  f2~ f4. g16 as
-  b8 g es2 c'4~
-  c8 a b4 r b
-  b1~ \startTrillSpan
-  \barNumberCheck 120
-  b1~
-  b8 \stopTrillSpan es, c' es, b' es, as d,
-  g8 as g f es des c b
-  c8 as' des, b' c, as' b, g'
-  c,8 as' des, b' c, as' b, g'
-  \barNumberCheck 125
-  c,4 des c b
-  as4 es'' c as~
-  as4 g8 f g b a c
-  b4 f' des b~
-  b4 as!8 g as4 h,
-  \barNumberCheck 130
-  c1
-  f1
-  es4 f8 g as4 as,
-  des4 c b g'
-  c,4 d8 e f4 \clef "bass" f,
-  \barNumberCheck 135
-  b8 c b as g as b g
-  as8 b as g f g as f
-  g8 \clef "treble" f' es d c d es c
-  des8 es des c b c des b
-  c1~
-  \barNumberCheck 140
-  c8 h c d es2~
-  es4 d8 c h c d h
-  c8 d es f g4 g,
-  a4. h8 h2 \tr
-  c1
-  \barNumberCheck 145
-  g'1
-  es4 f8 g as4 as,
-  des4 c b g'
-  c,4 d8 e f4 \clef "bass" f,
-  b8 c b as g as b g
-  \barNumberCheck 150
-  as8 b as g f g as f
-  g4 c, \clef "treble" c'2~
-  c4 h8 c d es f d
-  es8 f es d c d es c
-  as'8 b as g f g as f
-  \barNumberCheck 155
-  g8 as g f es d c h
-  c8 h c es d c h c
-  h8 g a h c h c d
-  es8 f es d c h c d
-  es8 d es f g f es f
-  \barNumberCheck 160
-  g8 as g f es2~
-  es2 d~
-  d2 c~
-  c2 h
-  c1~
-  \barNumberCheck 165
-  c1~
-  c1~
-  c1~
-  c1~
-  c8 h a h c es d c
-  \barNumberCheck 170
-  h4 g c2~
-  c8 h c a h4. \prall c8
-  c1 \fermata
-}
-
-pedalC = \relative c {
-  \globalC
-  c4 h c d
-  es4 d es f
-  g2 c
-  f,2 b
-  \barNumberCheck 5
-  es,2 as!
-  d,2 g
-  c,2 es
-  f2 r8 g f g
-  es8 f d es c2~
-  \barNumberCheck 10
-  c8 a h g es' d es c
-  d2 g
-  c,2 f
-  b, es
-  a,2 d
-  \barNumberCheck 15
-  g,2 r4 es
-  c2 d
-  g2 r
-  R1
-  R1
-  \barNumberCheck 20
-  R1
-  R1
-  g1
-  c1
-  b4 c8 d es4 es,
-  \barNumberCheck 25
-  as4 g f d'
-  g,4 a8 h c4 c,
-  f4 es d f
-  es4 d c es
-  d2 g
-  \barNumberCheck 30
-  c,4 g' c2~
-  c4 h g'2~
-  g4 c, f2~
-  f2 e
-  f2 des
-  \barNumberCheck 35
-  b2 c
-  f,2 r4 f
-  c'2 r4 c
-  g2 r4 g'
-  c4 b! as g
-  \barNumberCheck 40
-  f2 b
-  es,4 d c es
-  as,1
-  g4 f' es d
-  c4 d es d
-  \barNumberCheck 45
-  c4 b as2
-  es'4 d c8 c' b c
-  f,2 r8 b as b
-  es,2 r8 as g as
-  d,2 g
-  \barNumberCheck 50
-  c,4 d es c
-  b'4 as g c,
-  as'4 g f c
-  g'4 f e c
-  f4 g as g
-  \barNumberCheck 55
-  fis4 g a fis
-  g4 f! es as!
-  g4 f g g,
-  c4 d es c
-  g'4 f es c
-  \barNumberCheck 60
-  g'4 f es d
-  es4 as f g
-  c,4 f des es
-  as,4 des b c
-  f,4 g as f
-  \barNumberCheck 65
-  g2 a
-  b4 a b c
-  d4 c! b g
-  d'4 c! b a
-  b4 b' c d
-  \barNumberCheck 70
-  g,4 g, as! b
-  es,4 es' f g
-  c,4 d es c
-  d2 es
-  f4 g a f
-  \barNumberCheck 75
-  b4 a b f
-  b4 a b f
-  b4 es, f2
-  b,4 c d b
-  es4 d es b
-  \barNumberCheck 80
-  es4 d es b
-  es4 as, b2
-  es,1
-  b'1
-  f1
-  \barNumberCheck 85
-  c'1
-  g4 b es d
-  c4 a d d,
-  g4 a8 b c2~
-  c2 d
-  \barNumberCheck 90
-  es4 d c2~
-  c2 h
-  c2 as!
-  f2 g
-  c1
-  \barNumberCheck 95
-  g'1
-  es4 f8 g as4 as,
-  des4 c b g'
-  c,4 d!8 e f4 f,
-  b4 as g b
-  \barNumberCheck 100
-  as4 g as b
-  c2 c,
-  f4 g as f
-  c'4 b as f
-  c'4 b as g
-  \barNumberCheck 105
-  as4 des b c
-  f,4 b ges as
-  des4 ges es f
-  b,4 c des b
-  c2 d!
-  \barNumberCheck 110
-  es4 d es f
-  g4 f es c
-  g'4 f es d
-  es4 es, f g
-  c,4 c' des es
-  \barNumberCheck 115
-  as,4 as' b c
-  f,4 g as f
-  g2 as
-  b4 c d b,
-  es4 d es b
-  \barNumberCheck 120
-  es4 d es b
-  es4 as, b2
-  es4 f g es
-  as4 g as es
-  as4 g as es
-  \barNumberCheck 125
-  as4 des, es2
-  as,1
-  es'1
-  b1
-  f'1
-  \barNumberCheck 130
-  c4 g' c2~
-  c8 h c a h a h g
-  as!4 es as2~
-  as2 g~
-  g4 c, f2~
-  \barNumberCheck 135
-  f2 e
-  f,1
-  c'1
-  b4 c8 des es4 es,
-  as4 g f d'!
-  \barNumberCheck 140
-  g, a8 h c4 c,
-  f4 es d f
-  es4 d c es
-  d2 g
-  c,4 g' c2~
-  \barNumberCheck 145
-  c4 h g'2~
-  g4 c, f2~
-  f2 e
-  f2 des
-  b2 c
-  \barNumberCheck 150
-  f,2 r4 f
-  c'2 r4 c
-  g2 r4 g'
-  c4 b! as g
-  f2 b
-  \barNumberCheck 155
-  es,4 d c es
-  as,1
-  g4 f' es d
-  c4 d es d
-  c4 b as2
-  \barNumberCheck 160
-  es'4 d c8 c' b c
-  f,2 r8 b as b
-  es,2 r8 as g as
-  d,2 g
-  c,4 d es c
-  \barNumberCheck 165
-  b'4 as g c,
-  as'4 g f c
-  g'4 f e c
-  f4 g as g
-  fis4 g a fis
-  \barNumberCheck 170
-  g4 f! es as!
-  g2
-  g,
-  c,1 \fermata \bar "|."
-}
-
-% \score {
-%   <<
-%     \new PianoStaff  <<
-%       \new Staff \with {
-%         midiInstrument = "harpsichord"
-%         % midiPanPosition = #0.8
-%       } << { \rightC } { s1 * 172 } >>
-%       \new Staff \with {
-%         midiInstrument = "harpsichord"
-%         % midiPanPosition = #-0.8
-%       } << { \leftC } { s1 * 172 } >>
-%     >>
-%     \new Staff \with {
-%       \consists "Mark_engraver"
-%       midiInstrument = "harpsichord"
-%     } { \clef bass \pedalC }
-%   >>
-%   \layout{
-%     indent = 0.7\cm
-%   }
-%   \midi {
-%     \tempo 2=84
-%   }
-% }

@@ -1169,12 +1169,12 @@ pedalC = \relative c {
     \new PianoStaff  <<
       \new Staff \with {
         midiInstrument = "harpsichord"
-        % midiPanPosition = #0.8
-      } << { \rightC } { s1 * 172 } >>
+        midiPanPosition = #0.8
+      } \rightC
       \new Staff \with {
         midiInstrument = "harpsichord"
-        % midiPanPosition = #-0.8
-      } << { \leftC } { s1 * 172 } >>
+        midiPanPosition = #-0.8
+      } \leftC
     >>
     \new Staff \with {
       \consists "Mark_engraver"
