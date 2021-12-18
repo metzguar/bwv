@@ -4,18 +4,15 @@
 
 \header {
   title = "Sonata 1"
-  subtitle = "BWV 525"
+  subtitle = "a 2 Clav. & Pedal."
+  subsubtitle = "BWV 525"
   composer = "Johann Sebastian Bach"
   tagline = ##f
 }
 
 globalA = {
   \key es \major
-  \time 2/2
-  \set Timing.beamExceptions = #'()
-  \set Timing.baseMoment = #(ly:make-moment 1/4)
-  \set Timing.beamExceptions = #'((end . (((1 . 8) . (4 4))
-                                          ((1 . 16) . (4 4 4 4)))))
+  \allaBreve
 }
 
 rightA = \relative b' {

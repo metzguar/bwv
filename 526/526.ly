@@ -11,7 +11,7 @@
 
 globalA = {
   \key c \minor
-  \time 4/4
+  \allaBreve
   \override TrillSpanner.font-size = -1
 }
 
@@ -25,11 +25,11 @@ rightA = \relative g'' {
   \barNumberCheck 5
   b4 g,16 f g as b c des b' as des, g des
   as'4 as,16 g as b c d! es! as d, as' c, as'
-  h,8 as' g \prall f g, f' es \prall d
+  h,8 as' g f g, f' es d
   c8 d g, h c16 c, h c es c g' c,
   c'16 g es g c d, fis a h g d g b c, e g
   \barNumberCheck 10
-  a16 f! c f as b, d f g8 c b a \prall
+  a16 f! c f as b, d f g8 c b a
   g16 fis g b e4~ e16 a, fis! a d4~
   d16 g, e g c4~ c16 d, fis a d e, fis c'
   b8 g r4 r16 c, es g c d, e b'
@@ -39,7 +39,7 @@ rightA = \relative g'' {
   d!8 f b d, es8. f16 d8. es16
   es4 es,16 d es f g8 g' f \prall es
   f4 d,16 c d es f8 f' es \prall d
-  es8 g4 c, f b,8~
+  es8 g4 c,8~ c f4 b,8~
   \barNumberCheck 20
   b8 es4 a,8 b2 \startTrillSpan
   h2 c16 \stopTrillSpan h! c d es f g as
@@ -56,7 +56,7 @@ rightA = \relative g'' {
   es16 d c d fis c a' c, b8. c16 a8. g16
   g4 g'16 fis g a b8 d, c \prall b
   c4 fis16 e fis g a8 c, b \prall a
-  b8 b'4 es, a d,8~
+  b8 b'4 es,8~ es a4 d,8~
   d8 g4 c,8~ c16 a b c d es f! g
   \barNumberCheck 35
   as!4 h,16 a h c d8 f es d
@@ -67,11 +67,11 @@ rightA = \relative g'' {
   \barNumberCheck 40
   g16 es d c b c b a g8 b g d
   b16 a g a b a b c d es d c b c b a
-  g16 d' e fis g fis g a b8 g'( f! \prall es!)
-  f4 g,16 fis g a h8 f'!( es \prall d)
-  es8( h) c( as!) f( es') d( as')
+  g16 d' e fis g fis g a b8 g' f! es!
+  f4 g,16 fis g a h8 f'! es \prall d
+  es8 h( c as!) f es'( d as')
   \barNumberCheck 45
-  g8( h,) c( es,) d c'( f) a,
+  g8 h,( c es,) d c' f a,
   h16 c d es f as! g f es c' b! as g as g f
   es8 c es g c16 as g f es f es d
   c8 es c g es16 d c d es d es f
@@ -109,7 +109,7 @@ rightA = \relative g'' {
   \barNumberCheck 75
   b4 g,16 f g as b c des b' as des, g des
   << \stemDown \shiftOn as'4 \\ c, >> as 16 g as b c d! es! as d, as' c, as'
-  h,8 as' g \prall f g, f' es \prall d
+  h,8 as' g f g, f' es d
   c8 d g, h c2 \fermata
 }
 
@@ -126,13 +126,13 @@ leftA = \relative es'' {
   c16 es, as! g f es d c c8 r r4
   R1
   \barNumberCheck 10
-  r2 r16 g fis g b g d' g,
+  r2 \clef "bass" r16 g fis g b g d' g,
   g'16 d b d g a, cis e fis d a d f g, h d
   e16 c g c es fis, a c d4 r
   r16 g, b d g a, h f' es8 c r4
   r16 f, as! c f g, a es' d8 b r4
   \barNumberCheck 15
-  r16 es g b es f, g des' c2~
+  \clef "treble" r16 es g b es f, g des' c2~
   c16 b as! b d! as f' as, g8. as16 f8. g16
   g4 \clef "bass" g,16 f g as b8 \clef "treble" b' as \prall g
   as4 \clef "bass" f,16 es f g as8 \clef "treble" as' g \prall f
@@ -331,8 +331,6 @@ pedalA = \relative c' {
   }
 }
 
-\pageBreak
-
 globalB = {
   \key es \major
   \time 3/4
@@ -348,7 +346,7 @@ rightB = \relative b' {
   g16 es( f g as b c es des c b as)
   f'8 d! as' f b16 b, c des
   c8 as f es'~ es16 d c d
-  es2 r4
+  es2 r4 \pageTurn
   d16( f b a) b( f) f( es) es( d) d( c)
   \barNumberCheck 10
   c16( f a g) a( es) es( d) d( c) c( b)
@@ -395,7 +393,7 @@ rightB = \relative b' {
   \barNumberCheck 45
   c16 es d f es2~
   es16 c d h c2~
-  c16 d( es fis a g fis es d c h c)
+  c16 d( es fis a g fis! es! d c h c)
   h2.
 }
 
@@ -455,7 +453,7 @@ leftB = \relative g' {
   \barNumberCheck 45
   es16 g f as! g2~
   g16 es f d es2~
-  es8 a c a es( \prall d16 es)
+  es8 a c a es( d16) \prall es
   d2.
 }
 
@@ -473,7 +471,7 @@ pedalB = \relative es {
   b4 d b
   \barNumberCheck 10
   f'4 f, f'
-  g4 c, es
+  g,4 c es
   f4 b, d
   es2.~
   es4 c d
@@ -503,8 +501,8 @@ pedalB = \relative es {
   c4 d d,
   \barNumberCheck 35
   g'8 fis g g, r g'
-  as8 g as as, r a'
-  b8 a b b, r h'
+  as!8 g as as, r a'
+  b!8 a b b, r h'
   c8 h c c, r c'
   b!8 b, es d c b
   \barNumberCheck 40
@@ -589,7 +587,7 @@ rightC = \relative g' {
   h,4 c8 d es2~
   es4 d8 c h c d h
   c8 d es f g4 g,
-  a4. h8 h2 \tr
+  a4. h8 h2 \prallprall
   \barNumberCheck 30
   c1
   g'1
@@ -623,15 +621,15 @@ rightC = \relative g' {
   \barNumberCheck 55
   c8 h a h c es d c
   h4 g c2~
-  c8 h c a h4. \prall c8
-  c2 r4 es
+  c8 h c a h4. c8
+  c2 r4 es \pageTurn
   d16 h fis8 g2 es'4
   \barNumberCheck 60
   d16 h fis8 g2 as'4
   g16 es h8 c4~ c8 f es d
   es16 c g8 as4~ as8 des c b!
   c16 as e8 f4~ f8 b as g
-  as16([ g f8)] b16([ as g8)] c16( b as8) d!4~
+  as16[ g f8] b16[ as g8] c16 b as8 d!4~
   \barNumberCheck 65
   d8 es b g' c, g' f es
   d8 es d c d b g es'
@@ -645,9 +643,9 @@ rightC = \relative g' {
   f8 d b2 g'4~
   g8 e f4 r f
   \barNumberCheck 75
-  f1~ \startTrillSpan
+  f1~ \prallprall
   f1~
-  f8 \stopTrillSpan b, g' b, f' b, es a,
+  f8 b, g' b, f' b, es a,
   d8 es d c b as! g f
   g8 es' as, f' g, es' f, d'
   \barNumberCheck 80
@@ -695,10 +693,10 @@ rightC = \relative g' {
   g,8 es' as, f' g, es' f, d'
   g,4 as g f
   es2 r4 es'
-  es1~ \startTrillSpan
+  es1~ \prallprall
   es~
   \barNumberCheck 125
-  es8 \stopTrillSpan as, f' as, es' as, des g,
+  es8 as, f' as, es' as, des g,
   c8 des c b as b c as
   b8 c b as b es, c' es,
   des'8 es des c b c des b
@@ -717,7 +715,9 @@ rightC = \relative g' {
   g4 f8 es d es f d
   \barNumberCheck 140
   es8 f es d c d es c
-  as2. \prallprall g8 as
+  % \once \override TrillSpanner.bound-details.left.text = ##f
+  %   \once \override TrillSpanner.extra-offset = #'(-0.5 . 0 )
+  \prallSpanner as2. \startTrillSpan g8 \stopTrillSpan as
   g2~ g8 c h c
   f8 g f es d es f d
   es8 f es d c d es c
@@ -753,7 +753,7 @@ rightC = \relative g' {
   d1~
   \barNumberCheck 170
   d8 c' h a g c f,4
-  es2 d \tr
+  es2 d
   c1 \fermata
 }
 
@@ -838,10 +838,10 @@ leftC = \relative c' {
   d,8 b' es, c' d, b' c, a'
   d,4 es d c
   b2 r4 b'
-  \tieUp b1~ \startTrillSpan
+  \tieUp b1~ \prallprall
   \barNumberCheck 80
   b1~
-  b8 \stopTrillSpan es, c' es, b' es, as d, \tieNeutral
+  b8 es, c' es, b' es, as d, \tieNeutral
   g8 as g f es f g es
   f8 g f es f b, g' b,
   as'8 b as g f g as f
@@ -886,10 +886,10 @@ leftC = \relative c' {
   f2~ f4. g16 as
   b8 g es2 c'4~
   c8 a b4 r b
-  b1~ \startTrillSpan
+  b1~ \prallprall
   \barNumberCheck 120
   b1~
-  b8 \stopTrillSpan es, c' es, b' es, as d,
+  b8 es, c' es, b' es, as d,
   g8 as g f es des c b
   c8 as' des, b' c, as' b, g'
   c,8 as' des, b' c, as' b, g'
@@ -915,7 +915,7 @@ leftC = \relative c' {
   c8 h c d es2~
   es4 d8 c h c d h
   c8 d es f g4 g,
-  a4. h8 h2 \tr
+  a4. h8 h2 \prallprall
   c1
   \barNumberCheck 145
   g'1
@@ -949,7 +949,7 @@ leftC = \relative c' {
   c8 h a h c es d c
   \barNumberCheck 170
   h4 g c2~
-  c8 h c a h4. \prall c8
+  c8 h c a h4. \tr c8
   c1 \fermata
 }
 

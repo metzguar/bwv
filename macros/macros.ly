@@ -1,3 +1,11 @@
+allaBreve = {
+  \time 2/2
+  \set Timing.beamExceptions = #'()
+  \set Timing.baseMoment = #(ly:make-moment 1/4)
+  \set Timing.beamExceptions = #'((end . (((1 . 8) . (4 4))
+                                          ((1 . 16) . (4 4 4 4)))))
+}
+
 fermataOverBarLines = {
   \override Score.RehearsalMark.break-visibility = #begin-of-line-invisible
   \mark \markup { \musicglyph #"scripts.ufermata" }
@@ -12,6 +20,11 @@ setBeamCounts = #(define-music-function (parser location left right) (number? nu
                    #{ \set stemLeftBeamCount = #left
                       \set stemRightBeamCount = #right
                    #})
+
+prallSpanner = {
+  \once \override TrillSpanner.bound-details.left.text = ##f
+  \once \override TrillSpanner.extra-offset = #'(-0.6 . 0 )
+}
 
 tr = ^\markup { \hspace #0.6 \small \musicglyph #"scripts.trill" }
 
