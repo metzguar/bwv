@@ -10,6 +10,8 @@
   tagline = \tagline
 }
 
+%showLastLength = s4. * 27
+
 %{
 globalA = {
   \key d \minor
@@ -652,6 +654,51 @@ globalC = {
                                            )))
   \omit TupletBracket
 }
+rightC_A = {
+  a4 d32 e f16
+  e4 a,8~
+  a16 d c b a g
+  c32 b a16 b32 a g16 f8~
+  \barNumberCheck 5
+  f16 g a b a g
+  cis16 g a b a g
+  e'16 g, a b a g
+  f16 e g f e d
+  d16 c! h a f'8~
+  \barNumberCheck 10
+  f16 e e' d c h
+  a16 h h8. \prallprall a32 h
+  c8. e16 gis h
+  a8 a, f'~
+  f8 h, d~
+  \barNumberCheck 15
+  d8 gis, h~
+  h8 e, a~
+  \tuplet 3/2 { a16 g! f } \tuplet 3/2 { g f e } \tuplet 3/2 { d e f }
+  g,8 c'4~
+  \tuplet 3/2 { c16 h a } \tuplet 3/2 { h a gis } \tuplet 3/2 { fis gis a }
+  \barNumberCheck 20
+  h,8 e'4~
+  \tuplet 3/2 { e16 d c } \tuplet 3/2 { d c h } \tuplet 3/2 {  a h c }
+  d,8 g'4~
+  \tuplet 3/2 { g16 f e } \tuplet 3/2 {  f e d } \tuplet 3/2 {  cis d e }
+  d,8 d' cis
+  \barNumberCheck 25
+  d8 a d32 e f16
+  e4 a,8~
+  a16 d c b a g
+  c32 b a16 b32 a g16 f8~
+  f16 g a b a g
+  \barNumberCheck 30
+  cis16 g a b a g
+  e'16 g, a b a g
+  f8 f'4~
+  f16 e g f e d
+  cis16 b' a g f e
+  \barNumberCheck 35
+  d8 e cis
+  d4 r8
+}
 
 rightC = \relative g' {
   \globalC
@@ -728,6 +775,145 @@ rightC = \relative g' {
   e16 a, c h a gis
   \barNumberCheck 60
   \tuplet 3/2 { a16 e a cis a cis e d cis }
+  \tuplet 3/2 { d16 a d f d f } b8~
+  b16 e, a g f e
+  d16 e e8. \prallprall d32 e
+  f8. f,32 g a h cis16
+  \barNumberCheck 65
+  d8 g b~
+  b8 e, g~
+  g8 cis, e~
+  e16 a, d c! b a
+  b8 d g~
+  \barNumberCheck 70
+  g8 cis,16 b' a g
+  f8 g e
+  d4 r8
+  \tuplet 3/2 {
+    d16 f, g a b c d es f
+    es16 c d es f g a b c
+  }
+  \barNumberCheck 75
+  b8 f b~
+  \tuplet 3/2 { b16 a g f a c e,! g b }
+  c,4 f32 g a16
+  g4 b,8~
+  b16 a b a g f
+  \barNumberCheck 80
+  c'4 r8
+  e16 fis fis8. \prallprall e32 fis
+  \tuplet 3/2 { g16 fis g d g a b a g }
+  \tuplet 3/2 { c16 b c es, a, b c b a }
+  b4.
+  \barNumberCheck 85
+  h4~ \downprall h16 a!32 h
+  \tuplet 3/2 { c16 h c g c d es d c }
+  d8 g, fis
+  g8 b4~
+  \tuplet 3/2 { b16 a b g' b, a g a b }
+  \barNumberCheck 90
+  a4.~
+  \tuplet 3/2 { a16 g a f' a, g f g a }
+  g4.~
+  \tuplet 3/2 { g16 f g e' g, f e f g }
+  \tuplet 3/2 { f16 e d a' g f } d'8~
+  \barNumberCheck 95
+  \tuplet 3/2 { d16 c h f' e d } h'8~
+  \tuplet 3/2 { h16 c a gis a h } e,8~
+  \tuplet 3/2 { e16 c d e fis gis a h c }
+  h4 e,8~
+  e16 a g! f e d
+  \barNumberCheck 100
+  g32 f e16 f32 e d16 c8~
+  c16 d e f e d
+  gis d e f e d
+  h' d, e f e d
+  c4.~
+  \barNumberCheck 105
+  c16 h d c h a
+  gis16 f' e d c h
+  a8 h gis
+  \tuplet 3/2 { a16 e a c a c e c e }
+  a4.~
+  \barNumberCheck 110
+  \tuplet 3/2 { a16 c a fis a fis dis fis dis }
+  h4.~
+  \tuplet 3/2 { h16 g' e h e h g h g }
+  \tuplet 3/2 { e16 cis e g e g b! g b }
+  e4.~
+  \barNumberCheck 115
+  \tuplet 3/2 { e16 g e cis e cis a cis a }
+  \tuplet 3/2 { f16 d f a f a d a d }
+  f8 \tuplet 3/2 { f,16 g a d, e f }
+  b,8 \tuplet 3/2 { g'16 a b e, f g }
+  c,8 \tuplet 3/2 { a'16 b c f, g a }
+  \barNumberCheck 120
+  d,8 \tuplet 3/2 { b'16 c d g, a b}
+  \tuplet 3/2 { e,16 f g cis, d e } a,16. g'32
+  \tuplet 3/2 { fis16 g a } d,8 r
+  \tuplet 3/2 { d'16 e f h, c d } g,16. f'32
+  \tuplet 3/2 { e16 f g } c,8 r
+  \barNumberCheck 125
+  \tuplet 3/2 { c16 b! c f, c' d es d c}
+  d4.~
+  \tuplet 3/2 { d16 c d g, d' e! f e d }
+  e4.~
+  \tuplet 3/2 { e16 d e f g a g a f }
+  \barNumberCheck 130
+  \tuplet 3/2 { c'16 b a a g f f es d }
+  \tuplet 3/2 { d16 c b b a g g a b }
+  \tuplet 3/2 { a16 f' e! d c b a b g }
+  \tuplet 3/2 { f16 e f c f g a g f }
+  \tuplet 3/2 { g16 f g c, g' a b a g }
+  \barNumberCheck 135
+  \tuplet 3/2 { a16 g f c' b a g a f }
+  \tuplet 3/2 { e16 f g c, e g c b a }
+  b8 g d~
+  d8 fis a~
+  a8 g es'
+  \barNumberCheck 140
+  a,8 a'4~
+  \tuplet 3/2 { a16 fis g es fis g d fis g }
+  \tuplet 3/2 { c,16 fis g b, fis' g a, fis' g }
+  b,8 es a, \tr
+  g4 r8
+}
+
+left_C_A = {
+  R4. * 8
+  e4 a32 h c16
+  \barNumberCheck 10
+  h4 e,8~ e16 a g f e d
+  g32 f e16 f32 e d16 c8~
+  c16 d e f e d
+  gis16 d e f e d
+  \barNumberCheck 15
+  h'16 d, e f e d
+  c16 h d c h a
+  b!8 b'!4~
+  \tuplet 3/2 { b16 a g } \tuplet 3/2 {  a g fis } \tuplet 3/2 { e fis g }
+  a,8 d'4~
+  \barNumberCheck 20
+  \tuplet 3/2 { d16 c h } \tuplet 3/2 {  c h a } \tuplet 3/2 {  gis a h }
+  c,8 f'4~
+  \tuplet 3/2 { f16 e d }  \tuplet 3/2 { e d cis } \tuplet 3/2 {  h cis d }
+  e,8 a'4~
+  \tuplet 3/2 { a16 g f } \tuplet 3/2 { b a g } \tuplet 3/2 { f g e }
+  \barNumberCheck 25
+  f16 e d c b8~
+  b16 e, a g f e
+  d16 e e8. \prallprall d32 e
+  f8. a16 cis e
+  d8 d, b'~
+  \barNumberCheck 30
+  b8 e, g~
+  g8 cis, e~
+  e16 a, d c! b a
+  b8 d g~
+  g8 cis,16 b' a g
+  \barNumberCheck 35
+  f8 g e
+  d4 r8
 }
 
 leftC = \relative e' {
@@ -795,6 +981,155 @@ leftC = \relative e' {
   c,8 f h,
   \barNumberCheck 60
   cis8 r r
+  \clef "bass" a4 d32 e f16
+  e4 a,8~
+  a16 d c b a g
+  c32 b a16 b32 a g16 f8~
+  \barNumberCheck 65
+  f16 g a b a g
+  cis16 g a b a g
+  e'16 g, a b a g
+  f8 \clef "treble" f'4~
+  f16 e g f e d
+  \barNumberCheck 70
+  cis16 b' a g f e
+  d8 e cis
+  d4 r8
+  f4 b32 c d16
+  c4 es,8~
+  \barNumberCheck 75
+  es16 d es d c b
+  f'4 r8
+  \tuplet 3/2 {
+    a16 c, d e! f g a b c
+    b16 g a b c d e f g
+  }
+  f8 c f~
+  \barNumberCheck 80
+  \tuplet 3/2 {
+    f16 e d c e g h, d f
+    g,16 c d es a, b c b a
+  }
+  d8 fis, g~
+  g8 fis a~
+  \tuplet 3/2 { a16 g a d, g a b a g }
+  \barNumberCheck 85
+  \tuplet 3/2 { as16 g as d, f! g as g f }
+  g4.~
+  \tuplet 3/2 { g16 fis g es' a,! b c b a }
+  \tuplet 3/2 { b16 a b g b c d c b }
+  c8 e, c'~
+  \barNumberCheck 90
+  \tuplet 3/2 { c16 g a f a b c b a }
+  b8 d, b'~
+  \tuplet 3/2 { b16 a b e, g a b a g }
+  a8 cis, a'~
+  a8 \tuplet 3/2 { f16 e d a' g f }
+  \barNumberCheck 95
+  d'8~ \tuplet 3/2 { d16 c h f' e d }
+  e8~ \tuplet 3/2 { e16 f e d c h }
+  \tuplet 3/2 { c16 e d c h a } f'8~
+  f16 h, e d c h
+  a16 h h8. \prallprall a32 h
+  \barNumberCheck 100
+  c8. c,32 d e fis gis16
+  a8 d f~
+  f8 h, d~
+  d8 gis, h~
+  h16 e, a g! f e
+  \barNumberCheck 105
+  f8 a d~
+  d8 gis,16 f' e d
+  c8 d h
+  a8 r r
+  \tuplet 3/2 { r16 dis, fis a fis a c a c }
+  \barNumberCheck 110
+  fis4.~
+  \tuplet 3/2 { fis16 a fis dis fis dis h dis h }
+  \tuplet 3/2 { g16 e g h g h e h e }
+  g4.~
+  \tuplet 3/2 { g16 b! g e g e cis e cis }
+  \barNumberCheck 115
+  a4.~
+  \tuplet 3/2 { a16 f' d a d a } f8~
+  \tuplet 3/2 { f16 g a d, e f } b,8
+  \tuplet 3/2 { g'16 a b e, f g } c,8
+  \tuplet 3/2 { a'16 b c f, g a } d,8
+  \barNumberCheck 120
+  \tuplet 3/2 { b'16 c d g, a b } e,16. d'32
+  \tuplet 3/2 { cis16 d e } a,8 r
+  \tuplet 3/2 { a16 h c! fis, g a } d,16. c'32
+  \tuplet 3/2 { h16 c d } g,8 r
+  \tuplet 3/2 { g16 a b e, f g }c,16. b'32
+  \barNumberCheck 125
+  a4.~
+  \tuplet 3/2 { a16 g a d, a' b c b a }
+  b4.~
+  \tuplet 3/2 {  16 a b e, g a b a g }
+  f4.~
+  \barNumberCheck 130
+  f4.~
+  f4.~
+  f8 g e
+  f8 a c,~
+  c8 e g~
+  \barNumberCheck 135
+  g8 f d'
+  g,4 r8
+  \tuplet 3/2 { g16 fis g d g a b a g }
+  \tuplet 3/2 { a16 g a d, a' b c b a }
+  \tuplet 3/2 { b16 a g d' c b a b g }
+  \barNumberCheck 140
+  \tuplet 3/2 { fis16 g a d, fis a c b a }
+  b8 c d
+  es8 d c
+  d16 g, b a g fis
+  g4 r8
+}
+
+left_C_A = {
+  d8 d' d
+  c c c
+  b b b
+  a a a
+  \barNumberCheck 5
+  b g e
+  a a, h
+  cis a cis
+  d c! h
+  a a' a
+  \barNumberCheck 10
+  g g g
+  f f f
+  e e e
+  f d h
+  e e, fis
+  \barNumberCheck 15
+  gis e gis
+  a h c
+  d e f
+  e fis g
+  fis gis a
+  \barNumberCheck 20
+  gis a h
+  a h c
+  h cis d
+  cis a g!
+  f g a
+  \barNumberCheck 25
+  d, d' d
+  c c c
+  b b b
+  a a a
+  b g e
+  \barNumberCheck 30
+  a a, h
+  cis a cis
+  d d, d'
+  g, b g
+  a4 r8
+  \barNumberCheck 35
+  b g a
 }
 
 pedalC = \relative d {
@@ -871,8 +1206,121 @@ pedalC = \relative d {
   e8 d e
   \barNumberCheck 60
   a,8 a' g!
+  f8 d' d
+  c c c
+  b b b
+  a a a
+  \barNumberCheck 65
+  b g e
+  a a, h
+  cis a cis
+  d d, d'
+  g, b g
+  \barNumberCheck 70
+  a4 r8
+  b8 g a
+  d, d' c!
+  b b b
+  b b b
+  \barNumberCheck 75
+  b a g
+  f a c
+  f f f
+  f f f
+  f e d
+  \barNumberCheck 80
+  c e g
+  c b! a
+  b a g
+  a c fis,
+  g f! es
+  \barNumberCheck 85
+  f es d
+  es c' a,
+  b c d
+  g, g' f!
+  e! c e
+  \barNumberCheck 90
+  f, f' e
+  d b d
+  e, e' d
+  cis a cis
+  d, d' c!
+  \barNumberCheck 95
+  h c d
+  gis, e gis
+  a a' a
+  g g g
+  f f f
+  \barNumberCheck 100
+  e e e
+  f d h
+  e e, fis
+  gis e gis
+  a c a
+  \barNumberCheck 105
+  d f d
+  e4 r8
+  f d e
+  a,8 a' g
+  fis4 e8
+  \barNumberCheck 110
+  dis4 fis8
+  g,8 a h
+  e, g h
+  e4 d!8
+  cis4 e8
+  \barNumberCheck 115
+  f,8 g a
+  d, f a
+  d d d
+  e e e
+  f f f
+  \barNumberCheck 120
+  g g g
+  a r cis,
+  d r fis
+  g r h,
+  c r e
+  \barNumberCheck 125
+  f f f
+  fis fis fis
+  g g g
+  cis, cis cis
+  d c! b
+  \barNumberCheck 130
+  a f a
+  b g b
+  c b c
+  f, r r
+  e r r
+  \barNumberCheck 135
+  f a b
+  c e, fis
+  g r r
+  fis r r
+  g b c
+  \barNumberCheck 140
+  d fis d
+  g a b c, d es
+  d c d
+  g,16 g' \tuplet 3/2 { f!( g e!) e( f d) }
 }
 
+\score {
+  <<
+    \new PianoStaff  <<
+      \rightC
+      \leftC
+    >>
+    \new Staff \with {
+      \consists "Mark_engraver"
+    } { \clef bass \pedalC }
+  >>
+  \layout{
+    indent = 0.07\cm
+  }
+}
 \score {
   <<
     \new PianoStaff  <<
@@ -887,12 +1335,8 @@ pedalC = \relative d {
     >>
     \new Staff \with {
       midiInstrument = "harpsichord"
-      \consists "Mark_engraver"
-    } { \clef bass \pedalC }
+    } { \pedalC }
   >>
-  \layout{
-    indent = 0.7\cm
-  }
   \midi {
     \tempo 8=160
   }
