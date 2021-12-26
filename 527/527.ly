@@ -3,16 +3,13 @@
 \include "../macros/macros.ly"
 
 \header {
-  %   title = "Sonata 3"
-  %   subtitle = "a 2 Clav. & Pedal."
-  %   subsubtitle = "BWV 527"
-  %   composer = "Johann Sebastian Bach"
+  title = "Sonata 3"
+  subtitle = "a 2 Clav. & Pedal."
+  subsubtitle = "BWV 527"
+  composer = "Johann Sebastian Bach"
   tagline = \tagline
 }
 
-%showLastLength = s4. * 27
-
-%{
 globalA = {
   \key d \minor
   \time 2/4
@@ -254,9 +251,9 @@ leftA = \relative c'' {
   r4 g~
   g4~ g16 g, c8~
   c8 h32 a g16 f'8 es
-  es8 \prall d r d
+  es8 \prall d r \clef "bass" d
   \barNumberCheck 85
-  \clef "bass" es16 \prall d es8~ es16 d es8
+  es16 \prall d es8~ es16 d es8
   es8 f, r es'
   d16 \prall cis d8~ d16 cis d8
   d8 e,! r \clef "treble" d'
@@ -426,7 +423,7 @@ pedalA = \relative d {
   \barNumberCheck 110
   c16 b c8~ c16 b c a
   b2 \prallprall
-  a16 a' g a f g e _\markup { \hspace #0.4 \italic "Da Capo" } f
+  a16 a' g a f g e _\markup { \italic "Da Capo" } f
   \bar "||"
 }
 
@@ -639,7 +636,8 @@ pedalB = \relative f {
     \tempo 8=85
   }
 }
-%}
+
+\pageTurn
 
 globalC = {
   \key d \minor
@@ -653,51 +651,6 @@ globalC = {
                                            ((1 . 32) . ())
                                            )))
   \omit TupletBracket
-}
-rightC_A = {
-  a4 d32 e f16
-  e4 a,8~
-  a16 d c b a g
-  c32 b a16 b32 a g16 f8~
-  \barNumberCheck 5
-  f16 g a b a g
-  cis16 g a b a g
-  e'16 g, a b a g
-  f16 e g f e d
-  d16 c! h a f'8~
-  \barNumberCheck 10
-  f16 e e' d c h
-  a16 h h8. \prallprall a32 h
-  c8. e16 gis h
-  a8 a, f'~
-  f8 h, d~
-  \barNumberCheck 15
-  d8 gis, h~
-  h8 e, a~
-  \tuplet 3/2 { a16 g! f } \tuplet 3/2 { g f e } \tuplet 3/2 { d e f }
-  g,8 c'4~
-  \tuplet 3/2 { c16 h a } \tuplet 3/2 { h a gis } \tuplet 3/2 { fis gis a }
-  \barNumberCheck 20
-  h,8 e'4~
-  \tuplet 3/2 { e16 d c } \tuplet 3/2 { d c h } \tuplet 3/2 {  a h c }
-  d,8 g'4~
-  \tuplet 3/2 { g16 f e } \tuplet 3/2 {  f e d } \tuplet 3/2 {  cis d e }
-  d,8 d' cis
-  \barNumberCheck 25
-  d8 a d32 e f16
-  e4 a,8~
-  a16 d c b a g
-  c32 b a16 b32 a g16 f8~
-  f16 g a b a g
-  \barNumberCheck 30
-  cis16 g a b a g
-  e'16 g, a b a g
-  f8 f'4~
-  f16 e g f e d
-  cis16 b' a g f e
-  \barNumberCheck 35
-  d8 e cis
-  d4 r8
 }
 
 rightC = \relative g' {
@@ -724,7 +677,7 @@ rightC = \relative g' {
   h8 e, a~
   \tuplet 3/2 { a16 g! f } \tuplet 3/2 { g f e } \tuplet 3/2 { d e f }
   g,8 c'4~
-  \tuplet 3/2 { c16 h a } \tuplet 3/2 { h a gis } \tuplet 3/2 { fis gis a }
+  \tupNumOff \tuplet 3/2 { c16 h a } \tuplet 3/2 { h a gis } \tuplet 3/2 { fis gis a }
   \barNumberCheck 20
   h,8 e'4~
   \tuplet 3/2 { e16 d c } \tuplet 3/2 { d c h } \tuplet 3/2 {  a h c }
@@ -745,13 +698,13 @@ rightC = \relative g' {
   cis16 b' a g f e
   \barNumberCheck 35
   d8 e cis
-  d4 r8
+  d4 \fermata r8
   f8 d a~
   a8 cis e~
   e8 d b'
   \barNumberCheck 40
-  e,4 \prall r8
-  \tuplet 3/2 { a,16 gis a} \tupNumOff \tuplet 3/2 { e a h c h a }
+  e,4 \tr r8
+  \tuplet 3/2 { a,16 gis a} \tupNumOff \tuplet 3/2 { d, a' h c h a }
   \tuplet 3/2 { h16 a h e, h' c d c h }
   \tuplet 3/2 { c16 h a e' d c h c a }
   \tuplet 3/2 { gis16 a h e, gis h d c h }
@@ -806,7 +759,7 @@ rightC = \relative g' {
   \tuplet 3/2 { c16 b c es, a, b c b a }
   b4.
   \barNumberCheck 85
-  h4~ \downprall h16 a!32 h
+  h4~ \prallprall h16 a!32 h
   \tuplet 3/2 { c16 h c g c d es d c }
   d8 g, fis
   g8 b4~
@@ -879,42 +832,7 @@ rightC = \relative g' {
   g4 r8
 }
 
-left_C_A = {
-  R4. * 8
-  e4 a32 h c16
-  \barNumberCheck 10
-  h4 e,8~ e16 a g f e d
-  g32 f e16 f32 e d16 c8~
-  c16 d e f e d
-  gis16 d e f e d
-  \barNumberCheck 15
-  h'16 d, e f e d
-  c16 h d c h a
-  b!8 b'!4~
-  \tuplet 3/2 { b16 a g } \tuplet 3/2 {  a g fis } \tuplet 3/2 { e fis g }
-  a,8 d'4~
-  \barNumberCheck 20
-  \tuplet 3/2 { d16 c h } \tuplet 3/2 {  c h a } \tuplet 3/2 {  gis a h }
-  c,8 f'4~
-  \tuplet 3/2 { f16 e d }  \tuplet 3/2 { e d cis } \tuplet 3/2 {  h cis d }
-  e,8 a'4~
-  \tuplet 3/2 { a16 g f } \tuplet 3/2 { b a g } \tuplet 3/2 { f g e }
-  \barNumberCheck 25
-  f16 e d c b8~
-  b16 e, a g f e
-  d16 e e8. \prallprall d32 e
-  f8. a16 cis e
-  d8 d, b'~
-  \barNumberCheck 30
-  b8 e, g~
-  g8 cis, e~
-  e16 a, d c! b a
-  b8 d g~
-  g8 cis,16 b' a g
-  \barNumberCheck 35
-  f8 g e
-  d4 r8
-}
+
 
 leftC = \relative e' {
   \globalC
@@ -929,7 +847,7 @@ leftC = \relative e' {
   h'16 d, e f e d
   c16 h d c h a
   b!8 b'!4~
-  \tuplet 3/2 { b16 a g } \tuplet 3/2 {  a g fis } \tuplet 3/2 { e fis g }
+  \once \tupletDown \tuplet 3/2 { b16 a g } \tupNumOff \tuplet 3/2 {  a g fis } \tuplet 3/2 { e fis g }
   a,8 d'4~
   \barNumberCheck 20
   \tuplet 3/2 { d16 c h } \tuplet 3/2 {  c h a } \tuplet 3/2 {  gis a h }
@@ -951,8 +869,8 @@ leftC = \relative e' {
   g8 cis,16 b' a g
   \barNumberCheck 35
   f8 g e
-  d4 r8
-  \tuplet 3/2 { d16 cis d } \tuplet 3/2 { a d e } \tuplet 3/2 { f e d }
+  d4 \fermata r8
+  \once \tupNumOn \tuplet 3/2 { d16 cis d } \tuplet 3/2 { a d e } \tuplet 3/2 { f e d }
   \tuplet 3/2 { e16 d e } \tuplet 3/2 { a, e' f } \tuplet 3/2 { g f e }
   \tupNumOff \tuplet 3/2 { f16 e d a' g f e f d }
   \barNumberCheck 40
@@ -1060,7 +978,7 @@ leftC = \relative e' {
   \tuplet 3/2 { cis16 d e } a,8 r
   \tuplet 3/2 { a16 h c! fis, g a } d,16. c'32
   \tuplet 3/2 { h16 c d } g,8 r
-  \tuplet 3/2 { g16 a b e, f g }c,16. b'32
+  \tuplet 3/2 { g16 a b! e, f g }c,16. b'32
   \barNumberCheck 125
   a4.~
   \tuplet 3/2 { a16 g a d, a' b c b a }
@@ -1085,51 +1003,6 @@ leftC = \relative e' {
   es8 d c
   d16 g, b a g fis
   g4 r8
-}
-
-left_C_A = {
-  d8 d' d
-  c c c
-  b b b
-  a a a
-  \barNumberCheck 5
-  b g e
-  a a, h
-  cis a cis
-  d c! h
-  a a' a
-  \barNumberCheck 10
-  g g g
-  f f f
-  e e e
-  f d h
-  e e, fis
-  \barNumberCheck 15
-  gis e gis
-  a h c
-  d e f
-  e fis g
-  fis gis a
-  \barNumberCheck 20
-  gis a h
-  a h c
-  h cis d
-  cis a g!
-  f g a
-  \barNumberCheck 25
-  d, d' d
-  c c c
-  b b b
-  a a a
-  b g e
-  \barNumberCheck 30
-  a a, h
-  cis a cis
-  d d, d'
-  g, b g
-  a4 r8
-  \barNumberCheck 35
-  b g a
 }
 
 pedalC = \relative d {
@@ -1176,7 +1049,7 @@ pedalC = \relative d {
   a4 r8
   \barNumberCheck 35
   b g a
-  d, f a
+  d, \fermata _ \markup { \italic \huge Fine } f a
   d8 r r
   cis8 r r
   d8 f, g
@@ -1304,23 +1177,9 @@ pedalC = \relative d {
   d fis d
   g a b c, d es
   d c d
-  g,16 g' \tuplet 3/2 { f!( g e!) e( f d) }
+  g,16 g' \tupNumOff \tuplet 3/2 { f!( g e!) e _\markup { \italic "Da Capo" } f d } \bar "||"
 }
 
-\score {
-  <<
-    \new PianoStaff  <<
-      \rightC
-      \leftC
-    >>
-    \new Staff \with {
-      \consists "Mark_engraver"
-    } { \clef bass \pedalC }
-  >>
-  \layout{
-    indent = 0.07\cm
-  }
-}
 \score {
   <<
     \new PianoStaff  <<
@@ -1334,9 +1193,13 @@ pedalC = \relative d {
       } \leftC
     >>
     \new Staff \with {
+      \consists "Mark_engraver"
       midiInstrument = "harpsichord"
-    } { \pedalC }
+    } { \clef bass \pedalC }
   >>
+  \layout{
+    indent = 0.07\cm
+  }
   \midi {
     \tempo 8=160
   }
